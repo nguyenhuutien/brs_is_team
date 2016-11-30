@@ -31,18 +31,17 @@
           </p>
           <p>
             <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
+            <%= current_user.reading %>
             <%= t "book.reading" %>
           </p>
           <p>
             <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
+            <%= current_user.read %>
             <%= t "book.read" %>
           </p>
           <p>
-            <i class="fa fa-bookmark fa-fw w3-margin-right w3-text-theme"></i>
-            <%= t "book.bookmark" %>
-          </p>
-          <p>
             <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <%= current_user.favorite %>
             <%= t "book.favorite" %>
           </p>
         </div>

@@ -1,10 +1,17 @@
 class BooksController < ApplicationController
   load_and_authorize_resource
-  
+  before_action :load_data
+
   def show
-    @book = Book.first
+  end
+
+  private
+  def load_data
     @books = Book.all
-    @categories = Category.all
-    @supports =  Supports::Book.new @book
+    @supports = Supports::Book.new @book
+    @mark = current_user.marks.find_by book_id: @book.id
+    unless @mark
+      @mark = current_user.marks.create! book_id: @book.id
+    end
   end
 end
