@@ -1,0 +1,9 @@
+en:
+  signup:
+    sign_up: Sign up
+    password: "Password"
+    confirmation: "Password confirmation"
+    name: Name
+    email: Email
+    or: "Or"
+    with: "Sign up with %{provider}"
