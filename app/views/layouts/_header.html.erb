@@ -15,13 +15,13 @@
       <% end %>
     </li>
 
-    <li class="w3-hide-small">
+    <li class="w3-hide-small" title="<%= t "tooltip.requests" %>">
       <%= link_to user_requests_path(current_user), class: "w3-padding-large w3-hover-white" do %>
         <i class="fa fa-envelope-open"></i>
       <% end %>
     </li>
 
-    <li class="w3-hide-small">
+    <li class="w3-hide-small" title="<%= t "tooltip.books" %>">
       <%= link_to books_path, class: "w3-padding-large w3-hover-white" do %>
         <i class="fa fa-book"></i>
       <% end %>
@@ -38,7 +38,7 @@
       </div>
     </li>
 
-    <li class="w3-hide-small">
+    <li class="w3-hide-small" title="<%= t "tooltip.notifications" %>">
       <%= link_to "#", class: "w3-padding-large w3-hover-white" do %>
         <i class="fa fa-globe"></i>
       <% end %>
