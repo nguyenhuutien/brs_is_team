@@ -1,6 +1,9 @@
 class Admin::BooksController < Admin::AdminController
   load_and_authorize_resource
 
+  def show
+  end
+
   def index
     @categories = Category.includes :books
     @q = @books.ransack params[:q]

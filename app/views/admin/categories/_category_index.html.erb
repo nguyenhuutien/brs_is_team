@@ -1,0 +1,32 @@
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th><%= sort_link @q, :name, t("category.name") %></th>
+      <th><%= sort_link @q, :sum_book, t("category.sum_book") %></th>
+      <th><%= sort_link @q, :created_at, t("category.created_at") %></th>
+      <th><%= sort_link @q, :updated_at, t("category.updated_at") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each_with_index do |category, i| %>
+      <tr>
+        <td>
+          <%= category.name %>
+        </td>
+
+        <td>
+          <%= category.sum_book %>
+        </td>
+
+        <td>
+          <%= l category.created_at, format: :default %>
+        </td>
+
+        <td>
+          <%= l category.updated_at, format: :default %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @categories, remote: true %>

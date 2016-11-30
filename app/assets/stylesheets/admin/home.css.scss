@@ -7,48 +7,9 @@
   }
 }
 
-.content {
-  min-height: 100%;
-}
-
 .sidebar {
   .nht-icon {
     font-size: 1.5em !important;
     margin-right: 10px;
-  }
-}
-
-.nht-admin-book-index {
-  h1 {
-    text-align: center;
-    margin: 0px;
-    margin-bottom: 5px;
-  }
-
-  .nht-admin-book-table {
-    width: 100%;
-
-    .nht-admin-book-photo {
-      width: 100px;
-      height: 150px;
-    }
-  }
-  .nht-admin-search-form {
-    text-align: center;
-
-    .input-group {
-      margin: auto;
-      max-width: 500px;
-      margin-bottom: 10px;
-
-      .nht-icon {
-        width: 30px !important;
-        font-size: 1.3em !important;
-      }
-    }
-
-    .nht-btn-search {
-      margin-bottom: 10px;
-    }
   }
 }
