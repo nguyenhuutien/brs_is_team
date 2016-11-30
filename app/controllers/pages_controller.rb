@@ -12,7 +12,12 @@ class PagesController < ApplicationController
   private
   def load_data
     @feed_back =  FeedBack.new
-    @books = Book.take(6)
-    @reviews = Review.all
+    if user_signed_in?
+     @reviews = current_user.user_reviews
+     @books = current_user.favorite_books
+    else
+      @reviews = Review.all
+      @books = Book.all
+    end
   end
 end

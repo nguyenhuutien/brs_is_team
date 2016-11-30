@@ -56,7 +56,9 @@
           <p>
             <% @books.each_with_index do |book, i| %>
               <span class="w3-tag w3-small w3-theme-d1">
-                <%= truncate(book.title, length: 20) %>
+                <%= link_to book do %>
+                  <%= truncate(book.title, length: 20) %>
+                <% end %>
               </span>
             <% end %>
           </p>
@@ -73,15 +75,16 @@
       </div>
       <% @reviews.each do |review| %>
         <div class="w3-container w3-card-2 w3-white w3-round w3-margin nht-review-index">
-            <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
-              alt: "Avatar" %>
-            <p><strong><%= review.user.name %></strong></p>
+            <%= link_to review.user do %>
+              <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
+                alt: "Avatar" %>
+              <p><strong><%= review.user.name %></strong></p>
+            <% end %>
+            <div class="nht-review-title-book"><%= link_to review.book.title, review.book %></div>
             <%= review.title %>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <% review.rate.times do %>
+              <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <% end %>
             <hr class="w3-clear">
             <div class="w3-row-padding nht-review">
               <%= review.content %>
@@ -109,7 +112,7 @@
             <%= link_to book do %>
               <%= image_tag book.photo.url, class: "width", alt: book.title %>
             <% end %>
-            <p><%= book.author %></p>
+            <p class="nht-book-author"><%= book.author %></p>
             <hr>
           <% end %>
         </div>
