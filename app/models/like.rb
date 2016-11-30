@@ -4,5 +4,5 @@ class Like < ApplicationRecord
 
   validates :review, presence: true
   validates :user, presence: true
-  validates :activity, presence: :true
+  validates :review, presence: :true
 end

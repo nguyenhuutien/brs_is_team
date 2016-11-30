@@ -1,0 +1,46 @@
+<%= link_to current_user do %>
+  <h4 class="w3-center"><%= current_user.name %></h4>
+  <p class="w3-center">
+    <%= image_tag current_user.image.url,
+      class: "w3-circle nht-profile-avatar", alt: "Avatar" %>
+  </p>
+<% end %>
+<div class="nht-follow-detail">
+  <span class="nht-followed">
+    <%= current_user.following.size %> <%= t "user.followed" %>
+  </span>
+  <span class="nht-follower">
+    <%= current_user.followers.size %> <%= t "user.followers" %>
+  </span>
+  <div class="clearfix"></div>
+</div>
+<hr>
+<p>
+  <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme">
+  </i>
+  <%= l current_user.created_at, format: :default %>
+</p>
+<p>
+  <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
+  <%= link_to user_list_books_path(current_user,
+    book_status: Settings.book.list_book[0]), remote: true do %>
+    <%= current_user.size_reading %>
+    <%= t "book.reading" %>
+  <% end %>
+</p>
+<p>
+  <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
+  <%= link_to user_list_books_path(current_user,
+    book_status: Settings.book.list_book[1]), remote: true do %>
+    <%= current_user.size_read %>
+    <%= t "book.read" %>
+  <% end %>
+</p>
+<p>
+  <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+  <%= link_to user_list_books_path(current_user,
+    book_status: Settings.book.list_book[2]), remote: true do %>
+    <%= current_user.size_favorite %>
+    <%= t "book.favorite" %>
+  <% end %>
+</p>

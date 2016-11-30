@@ -1,5 +1,7 @@
 en:
-review:
-title: Reviews
-like: Like
-comment: Comment
+  review:
+    title: Reviews
+    like: Like
+    unlike: UnLike
+    comment: Comment
+    ago: ago

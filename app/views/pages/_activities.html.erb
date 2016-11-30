@@ -1,0 +1,7 @@
+<div class="nht-activity">
+  <h5><%= t "activity.all" %></h5>
+  <% @activities.each do |activity| %>
+    <li><%= render "public_activity/activities/activity", activity: activity %></li>
+  <% end %>
+</div>
+<hr>

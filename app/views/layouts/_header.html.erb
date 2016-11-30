@@ -18,18 +18,21 @@
     <li class="w3-hide-small" title="<%= t "tooltip.requests" %>">
       <%= link_to user_requests_path(current_user), class: "w3-padding-large w3-hover-white" do %>
         <i class="fa fa-envelope-open"></i>
+        <span><%= t "request.all" %></span>
       <% end %>
     </li>
 
     <li class="w3-hide-small" title="<%= t "tooltip.books" %>">
       <%= link_to books_path, class: "w3-padding-large w3-hover-white" do %>
         <i class="fa fa-book"></i>
+        <span><%= t "book.all_book" %></span>
       <% end %>
     </li>
 
     <li class="w3-hide-small w3-dropdown-hover">
       <a href="#" class="w3-padding-large w3-hover-white" title="Categories">
         <i class="glyphicon glyphicon-th-list"></i>
+        <span><%= t "category.all_category" %></span>
       </a>
       <div class="w3-dropdown-content w3-white w3-card-4 nht-categories">
         <% @categories.each do |category| %>

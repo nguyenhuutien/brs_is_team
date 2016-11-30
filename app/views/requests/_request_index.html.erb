@@ -1,10 +1,12 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= t "request.book_title" %></th>
-      <th><%= t "request.book_publish_date" %></th>
-      <th><%= t "request.book_author" %></th>
-      <th><%= t "request.action" %></th>
+      <th><%= sort_link @q, :book_title, t("request.book_title") %></th>
+      <th><%= sort_link @q, :book_publish_date, t("request.book_publish_date") %></th>
+      <th><%= sort_link @q, :book_author, t("request.book_author") %></th>
+      <th><%= sort_link @q, :created_at, t("request.created_at") %></th>
+      <th><%= sort_link @q, :status, t("request.status") %></th>
+      <th><%= sort_link @q, t("request.action") %></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +15,8 @@
         <td><%= request.book_title %></td>
         <td><%= request.book_publish_date %></td>
         <td><%= request.book_author %></td>
+        <td><%= request.created_at %></td>
+        <td><%= request.status %></td>
         <td><%= link_to t("request.delete"), [current_user, request], method: :delete,
           data: {confirm: t("request.confirm")}, remote:true,
           class: "btn btn-danger" %>

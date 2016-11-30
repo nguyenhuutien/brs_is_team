@@ -3,6 +3,8 @@ class RequestsController < ApplicationController
 
   def index
     @requests = current_user.requests.page(params[:page]).per Settings.per_page
+    @q = @requests.ransack params[:q]
+    @requests = @q.result.page(params[:page]).per Settings.per_page
   end
 
   def new
@@ -10,10 +12,8 @@ class RequestsController < ApplicationController
 
   def create
     if @request.save
-      flash.now[:success] = t "request.success"
+      flash[:success] = t "request.success"
       redirect_to user_requests_path(current_user)
-    else
-      render :new
     end
   end
 

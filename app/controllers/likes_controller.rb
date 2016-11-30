@@ -1,20 +1,16 @@
 class LikesController < ApplicationController
-  before_action :load_data
+  load_resource :review
+  load_resource
+  authorize_resource only: :destroy
 
   def create
-    @like = @activity.likes.build
+    @like.review = @review
     @like.user = current_user
     @like.save
   end
 
   def destroy
-    @like = @activity.likes.find_by id: params[:id]
     @like.destroy
-    @activity.likes.build
-  end
-
-  private
-  def load_data
-    @activity = Activity.find_by id: params[:activity_id]
+    @review.likes.build
   end
 end
