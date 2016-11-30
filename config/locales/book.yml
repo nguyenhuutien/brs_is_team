@@ -5,6 +5,7 @@ en:
     read: read
     reading: reading
     favorite: favorite
+    bookmark: mark
     most_book: The most book popular
     detail: Detail
     category: Category
@@ -14,3 +15,5 @@ en:
     pages: Pages
     other_book: Other book
     sum_rate: Sum
+    sum_rate: Sum
+    

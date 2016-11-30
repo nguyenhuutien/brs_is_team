@@ -20,6 +20,7 @@ gem "mini_magick", "3.8.0"
 gem "fog"
 gem "faker"
 gem "pry"
+gem "cancancan", "~> 1.10"
 
 group :development, :test do
   gem "byebug", platform: :mri

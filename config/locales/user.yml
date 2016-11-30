@@ -2,3 +2,7 @@ en:
   user:
     followed: Followed
     followers: Followers
+    save: Save
+    email: Email
+    current_password: Current password
+    name: Name
