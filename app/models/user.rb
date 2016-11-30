@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :identities
   has_many :likes, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :active_relationships, class_name: Follow.name,
     foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: Follow.name,
@@ -15,6 +16,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   mount_uploader :image, ImageUploader
+
+  include PublicActivity::Model
 
   def user_reviews
     Review.where("user_id = ? OR user_id IN(SELECT followed_id FROM follows
@@ -31,6 +34,10 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def like? activity
+    self.likes.find_by(activity_id: activity.id) ? true : false
   end
 
   Book::STATUS.each do |status|

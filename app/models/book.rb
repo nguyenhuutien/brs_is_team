@@ -26,5 +26,7 @@ class Book < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  include PublicActivity::Model
+
   STATUS = ["reading", "read", "favorite"]
 end

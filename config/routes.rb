@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :list_books, only: :index
     resources :requests, except: [:show, :edit, :update]
   end
+  resources :activities, only: :index do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :feed_backs, only: [:new, :create]
   resources :books, only: [:show, :index]
   resources :reviews

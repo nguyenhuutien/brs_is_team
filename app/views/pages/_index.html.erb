@@ -83,46 +83,59 @@
       </div>
       <% @reviews.each do |review| %>
         <div class="w3-container w3-card-2 w3-white w3-round w3-margin nht-review-index">
-            <%= link_to review.user do %>
-              <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
-                alt: "Avatar" %>
-              <p><strong><%= review.user.name %></strong></p>
-            <% end %>
-            <div class="nht-review-title-book"><%= link_to review.book.title, review.book %></div>
-            <%= review.title %>
-            <% review.rate.times do %>
-            <i class="fa fa-star fa-fw w3-text-theme"></i>
-            <% end %>
-            <hr class="w3-clear">
-            <div class="w3-row-padding nht-review">
-              <%= review.content %>
-            </div>
-            <div class="nht-btn-like-cmt">
-              <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom">
-                <i class="fa fa-thumbs-up"></i> <%= t "review.like" %>
-              </button>
-              <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
-                <i class="fa fa-comment"></i> <%= t "review.comment" %>
-              </button>
-            </div>
+          <%= link_to review.user do %>
+            <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
+              alt: "Avatar" %>
+            <p><strong><%= review.user.name %></strong></p>
+          <% end %>
+          <div class="nht-review-title-book"><%= link_to review.book.title, review.book %></div>
+          <%= review.title %>
+          <% review.rate.times do %>
+          <i class="fa fa-star fa-fw w3-text-theme"></i>
+          <% end %>
+          <hr class="w3-clear">
+          <div class="w3-row-padding nht-review">
+            <%= review.content %>
+          </div>
+          <div class="nht-btn-like-cmt">
+            <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom">
+              <i class="fa fa-thumbs-up"></i> <%= t "review.like" %>
+            </button>
+            <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
+              <i class="fa fa-comment"></i> <%= t "review.comment" %>
+            </button>
+          </div>
         </div>
       <% end %>
+      <%= paginate @reviews %>
       <!-- End Middle Column -->
     </div>
 
     <!-- Right Column -->
     <div class="w3-col m2">
       <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="nht-activity">
+          <h5><%= t "activity.all" %></h5>
+          <% @activities.each do |activity| %>
+            <li><%= render "public_activity/activities/activity", activity: activity %></li>
+          <% end %>
+        </div>
+        <hr>
         <div class="w3-container">
-          <p><%= t "book.most_book" %>:</p>
-          <% @books.each do |book| %>
-            <div class="nht-book-most">
-              <%= link_to book do %>
-                <%= image_tag book.photo.url, class: "width", alt: book.title %>
-              <% end %>
-              <p class="nht-book-author"><%= book.author %></p>
-              <hr>
-            </div>
+          <div class="nht-book-most_book">
+            <p><%= t "book.most_book" %>:</p>
+            <% @most_books.each do |book| %>
+              <div class="nht-book-most">
+                <%= link_to book do %>
+                  <%= image_tag book.photo.url, class: "width", alt: book.title %>
+                <% end %>
+                <%= link_to user_list_books_path(current_user,
+                  author: book.author), remote: true do %>
+                  <p class="nht-book-author"><%= book.author %></p>
+                <% end %>
+                <hr>
+              </div>
+          </div>
           <% end %>
         </div>
       </div>
