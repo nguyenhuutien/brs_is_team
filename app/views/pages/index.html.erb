@@ -1,17 +1,5 @@
-<% unless user_signed_in? %>
-  <div class="nht-header">
-    <%= render "header_homepage" %>
-  </div>
+<% if user_signed_in? %>
+<%= render "index" %>
+<% else %>
+<%= render "index_homepage" %>
 <% end %>
-<div class="nht-home-background">
-  <div class="container">
-    <div class="intro-text">
-    <div class="intro-lead-in"><%= t :welcome %></div>
-      <div class="intro-heading"><%= t :nice_to %></div>
-    </div>
-  </div>
-</div>
-
-<%= render "book_library" %>
-<%= render "about" %>
-<%= render "feed_backs/form" %>

@@ -1,0 +1,9 @@
+en:
+  book:
+    author: Author
+    description: Description
+    read: read
+    reading: reading
+    favorite: favorite
+    most_book: The most book popular
+    detail: Detail

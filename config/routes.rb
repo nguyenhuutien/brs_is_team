@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get "/pages/:page", to: "pages#show"
 
   resources :feed_backs, only: [:new, :create]
+  resources :books
+  resources :categories
 end

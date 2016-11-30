@@ -1,0 +1,177 @@
+<!-- Profile -->
+<div class="w3-container w3-content nht-profile-home">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+          <h4 class="w3-center"><%= current_user.name %></h4>
+          <p class="w3-center">
+            <%= image_tag current_user.image.url,
+              class: "w3-circle nht-profile-avatar", alt: "Avatar" %>
+          </p>
+          <div class="nht-follow-detail">
+            <span class="nht-followed">
+              <%= current_user.following.size %> <%= t "user.followed" %>
+            </span>
+            <span class="nht-follower">
+              <%= current_user.followers.size %> <%= t "user.followers" %>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+          <hr>
+          <p>
+            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+          </p>
+          <p>
+            <i class="fa fa-book fa-fw w3-margin-right w3-text-theme"></i>
+            <%= t "book.reading" %>
+          </p>
+          <p>
+            <i class="fa fa-bookmark fa-fw w3-margin-right w3-text-theme"></i>
+            <%= t "book.read" %>
+          </p>
+          <p>
+            <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <%= t "book.favorite" %>
+          </p>
+        </div>
+      </div>
+      <br>
+
+      <!-- Accordion -->
+      <div class="w3-card-2 w3-round">
+        <div class="w3-accordion w3-white">
+          <button onclick="myFunction('Demo1')"
+            class="w3-btn-block w3-theme-l1 w3-left-align">
+            <i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>
+            <%= t "home.group" %>
+          </button>
+          <div id="Demo1" class="w3-accordion-content w3-container">
+            <p><%= t "home.text" %></p>
+          </div>
+          <button onclick="myFunction('Demo2')"
+            class="w3-btn-block w3-theme-l1 w3-left-align">
+            <i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>
+            <%= t "home.events" %>
+          </button>
+          <div id="Demo2" class="w3-accordion-content w3-container">
+            <p><%= t "home.text" %></p>
+          </div>
+          <button onclick="myFunction('Demo3')"
+            class="w3-btn-block w3-theme-l1 w3-left-align">
+            <i class="fa fa-users fa-fw w3-margin-right"></i>
+            <%= t "home.photos" %>
+          </button>
+          <div id="Demo3" class="w3-accordion-content w3-container">
+            <div class="w3-row-padding">
+              <br>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+              <div class="w3-half">
+                <img src="http://www.w3schools.com/css/img_fjords.jpg"
+                  class="w3-margin-bottom width">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <!-- Interests -->
+      <div class="w3-card-2 w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p><%= t "profile.interests" %></p>
+          <p>
+            <% @books.each_with_index do |book, i| %>
+              <span class="w3-tag w3-small w3-theme-d1">
+                <%= truncate(book.title, length: 20) %>
+              </span>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <br>
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+      <div class="nht-reviews">
+        <h2><%= t "review.title" %></h2>
+      </div>
+      <% @reviews.each do |review| %>
+        <div class="w3-container w3-card-2 w3-white w3-round w3-margin nht-review-index">
+            <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
+              alt: "Avatar" %>
+            <p><strong><%= review.user.name %></strong></p>
+            <%= review.title %>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <hr class="w3-clear">
+            <div class="w3-row-padding nht-review">
+              <%= review.content %>
+            </div>
+            <div class="nht-btn-like-cmt">
+              <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom">
+                <i class="fa fa-thumbs-up"></i> <%= t "review.like" %>
+              </button>
+              <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
+                <i class="fa fa-comment"></i> <%= t "review.comment" %>
+              </button>
+            </div>
+
+        </div>
+      <% end %>
+    <!-- End Middle Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p><%= t "book.most_book" %>:</p>
+          <% @books.each do |book| %>
+            <%= image_tag book.photo.url, class: "width", alt: book.title %>
+            <p><strong><%= t "book.author" %></strong></p>
+            <p><%= t "book.description" %></p>
+            <p>
+              <%= link_to book do %>
+                <button class="w3-btn w3-btn-block w3-theme-l4">
+                  <%= t("book.detail") %>
+                </button>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+<!-- End Page Container -->
+</div>

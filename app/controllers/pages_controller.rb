@@ -13,5 +13,7 @@ class PagesController < ApplicationController
   def load_data
     @feed_back =  FeedBack.new
     @books = Book.all
+    @reviews = Review.all
+    @categories = Category.all
   end
 end

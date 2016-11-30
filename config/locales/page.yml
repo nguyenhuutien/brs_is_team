@@ -1,0 +1,56 @@
+en:
+  title: Book Review System
+  home: Home
+  profile: Profile
+  book_library: Book Library
+  most_book: The most books popular
+  about: About
+  about_us: The information of team
+  _feed_back: Feed back
+  information: The information of System
+  copyright: Copyright
+  team: ISTeam-Team
+  privacy_policy:  Privacy Policy
+  terms: Terms of Use
+  feed_back:
+    feed_back_us: Feed back Us
+    feed_back_with_email: Feed back us with email
+    your_name: Your Name *
+    your_email: Your Email *
+    your_phone: Your Phone *
+    your_message: Your Message *
+    enter_name: Please enter your name.
+    enter_email: Please enter your email address.
+    enter_phone: Please enter your phone number.
+    enter_message: Please enter a message.
+    send_message: Send Message
+  welcome: Welcome To Review Book System!
+  nice_to: It's Nice To Meet You
+  _student_id: "Student ID: "
+  _class: "Class: "
+  _university: "University: "
+  _position: "Position: "
+  tien:
+    name: Nguyen Huu Tien
+    student_id: "20133945"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Leader
+  minh:
+    name: Cao Van Minh
+    student_id: "20122071"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer
+  hai:
+    name: Tran Minh Hai
+    student_id: "20131271"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer
+  tung:
+    name: Le Tat Tung
+    student_id: "20134394"
+    class: HEDSPI C K58
+    university: Ha Noi University Science And Technology
+    position: Developer

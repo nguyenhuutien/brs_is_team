@@ -1,0 +1,92 @@
+.td-invoice-box {
+    background-color: #FFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+    margin-bottom: 5px;
+
+    .td-invoice-show-top {
+      padding-top: 20px;
+      min-height: 25px;
+
+      hr {
+        margin: 10px 0 !important;
+      }
+    }
+
+    .td-invoice-content {
+
+      .td-invoice-content-left {
+        width: 30%;
+        display: inline-block;
+        float: left;
+        padding: 10px 0 5px 0;
+
+        p {
+          font-weight: bold;
+          margin-bottom: 5px !important;
+        }
+      }
+
+      .td-invoice-content-right {
+        width: 70% !important;
+        display: inline-block;
+        width: 1px;
+        height: 40px;
+        padding: 10px 0px 10px 20px;
+
+        .td-line {
+          position: relative;
+          float: left;
+          .td-circle-first {
+            position: absolute;
+            top: -5px;
+            font-size: 10px;
+            left: 2px;
+          }
+          .td-circle-second {
+            position: absolute;
+            top: 195px;
+            left: 0;
+          }
+        }
+
+        .td-line:after {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 1px;
+          height: 190px;
+          border: 1px dotted #000;
+          top: 5px;
+          left: 5px;
+        }
+
+        .td-invoice-content-right-detail {
+          width: 100%;
+
+          .td-invoice-address-top {
+            padding-left: 20px;
+            margin-top: -5px;
+            margin-bottom: 20px;
+          }
+
+          .td-invoice-address-bottom {
+            padding-left: 20px;
+            margin-top: 0px;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    .td-invoice-content-2 {
+
+      .td-text-top {
+        font-style: italic;
+        color: #8a8686;
+      }
+
+      .td-text-bottom {
+        font-weight: bold;
+      }
+    }
+  }
