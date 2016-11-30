@@ -1,5 +1,4 @@
 class MarksController < ApplicationController
-  authorize_resource
   before_action :load_mark
 
   def update
@@ -22,10 +21,10 @@ class MarksController < ApplicationController
   end
 
   def create_mark_activity
-    if @mark_before.mark_read != @mark.mark_read
+    if @mark_before[:mark_read] != @mark.mark_read
       @mark.book.create_activity key: "#{@mark.mark_read}", owner: @mark.user
     else
-      @mark.bookcreate_activity key: "favorite" , owner: @mark.user
+      @mark.book.create_activity key: "favorite" , owner: @mark.user
     end
   end
 end

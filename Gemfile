@@ -26,6 +26,7 @@ gem "kaminari-bootstrap", "~> 3.0.1"
 gem "ransack"
 gem "bootstrap-datepicker-rails"
 gem "public_activity"
+gem "rails-assets-adminlte"
 
 group :development, :test do
   gem "byebug", platform: :mri

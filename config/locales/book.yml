@@ -17,3 +17,7 @@ en:
     other_book: Other book
     sum_rate: Sum
     all_book: All books
+    publish_date: Publish date
+    photo: Photo
+    created_at: Created at
+    updated_at: Updated at

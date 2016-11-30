@@ -50,8 +50,9 @@
         alt: "Avatar" %>
       </a>
       <div class="w3-dropdown-content w3-white w3-card-4 td-dropdown-fix">
-        <%= link_to t("profile.title"), current_user %>
-        <%= link_to t("sessions.sign_out"), destroy_user_session_path, method: :delete %>
+        <%= link_to t("profile.title"), current_user, class: "nht-dropdown-fix" %>
+        <%= link_to t("sessions.sign_out"), destroy_user_session_path, method: :delete,
+          class: "nht-dropdown-fix" %>
       </div>
     </li>
    </ul>
