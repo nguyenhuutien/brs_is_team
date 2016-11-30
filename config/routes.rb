@@ -10,13 +10,20 @@ Rails.application.routes.draw do
     resources :list_books, only: :index
     resources :requests, except: [:show, :edit, :update]
   end
+  resources :follows, only: [:create, :destroy]
   resources :activities, only: :index do
     resources :likes, only: [:create, :destroy]
   end
-  resources :feed_backs, only: [:new, :create]
+  resources :categories, only: [:show, :index]
   resources :books, only: [:show, :index]
   resources :reviews
-  resources :categories, only: [:show, :index]
-  resources :follows, only: [:create, :destroy]
   resources :marks, only: :update
+  resources :feed_backs, only: [:new, :create]
+
+  namespace :admin do
+    root to: "books#index", as: :root
+    resources :categories
+    resources :books
+    resources :users
+  end
 end

@@ -7,14 +7,19 @@ class Ability
     case controller_namespace
     when "Admin"
       if user.admin?
+        can :manage, :all
+        cannot :crud, User do |other_user|
+          other_user.admin?
+        end
       end
     else
-      can :read, User
-      can :update, User, id: user.id
-      can :read, Book
-      can :manage, Mark, user_id: user.id
-      can :read, Category
-      can :manage, Request, user_id: user.id
+      unless user.admin?
+        can :read, User
+        can :update, User, id: user.id
+        can :read, Book
+        can :read, Category
+        can :manage, Request, user_id: user.id
+      end
     end
   end
 end

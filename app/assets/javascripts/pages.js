@@ -45,15 +45,6 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
-  var flash = function(){
-    setTimeout(function(){
-      $('#flash').slideUp(1000);
-    }, 1500);
-  };
-  $(document).ready(flash);
-  $(document).on('page:load', flash);
-  $(document).on('page:change', flash);
-
   function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {

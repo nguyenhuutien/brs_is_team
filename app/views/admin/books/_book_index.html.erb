@@ -1,0 +1,61 @@
+<table class="table table-bordered table-striped table-hover nht-admin-book-table">
+  <thead class="thead-default">
+    <tr>
+      <th><%= sort_link @q, :photo, t("book.photo") %></th>
+      <th><%= sort_link @q, :title, t("book.title") %></th>
+      <th><%= sort_link @q, :category, t("book.category") %></th>
+      <th><%= sort_link @q, :author, t("book.author") %></th>
+      <th><%= sort_link @q, :rate, t("book.rate") %></th>
+      <th><%= sort_link @q, :pages, t("book.pages") %></th>
+      <th><%= sort_link @q, :publish_date, t("book.publish_date") %></th>
+      <th><%= sort_link @q, :description, t("book.description") %></th>
+      <th><%= sort_link @q, :created_at, t("book.created_at") %></th>
+      <th><%= sort_link @q, :updated_at, t("book.updated_at") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td>
+          <%= image_tag book.photo.url, class: "nht-admin-book-photo" %>
+        </td>
+        <td>
+          <%= link_to book.title, [:admin, book] %>
+        </td>
+
+        <td>
+          <%= link_to book.category.name, [:admin, book.category] %>
+        </td>
+
+        <td>
+          <%= book.author %>
+        </td>
+
+        <td>
+          <%= book.rate %>
+        </td>
+
+        <td>
+          <%= book.pages %>
+        </td>
+
+        <td>
+          <%= l book.publish_date, format: :default %>
+        </td>
+
+        <td>
+          <%= truncate(book.description, length: 10) %>
+        </td>
+
+        <td>
+          <%= l book.created_at, format: :default %>
+        </td>
+
+        <td>
+          <%= l book.updated_at, format: :default %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @books, remote: true %>

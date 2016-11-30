@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :load_data
+  before_action :check_admin
 
   def index
   end
@@ -19,5 +20,9 @@ class PagesController < ApplicationController
     end
     @most_books = Book.most_books
     @activities = PublicActivity::Activity.all.order(created_at: :desc)
+  end
+
+  def check_admin
+    redirect_to admin_root_path if current_user.try :admin?
   end
 end
