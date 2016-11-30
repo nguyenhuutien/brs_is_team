@@ -1,0 +1,13 @@
+en:
+  request:
+    all: All requests
+    new: New
+    book_title: Book title
+    book_publish_date: Book publish date
+    book_author: Book author
+    action: Action
+    delete: Delete
+    confirm: Are you sure?
+    success: Successful
+    danger: Failure
+    _new: New request

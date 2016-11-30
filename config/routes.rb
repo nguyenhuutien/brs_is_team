@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :list_books, only: :index
+    resources :requests, except: [:show, :edit, :update]
   end
   resources :feed_backs, only: [:new, :create]
   resources :books, only: [:show, :index]

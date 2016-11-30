@@ -30,3 +30,8 @@ User.all.each do |user|
       title: "Good book", rate: 3, book_id: book.id
   end
 end
+
+20.times do
+  Request.create! user_id: 1, book_title: Faker::Book.title, book_author: Faker::Book.author,
+    book_publish_date: Date.new(2016, 11, 9)
+end
