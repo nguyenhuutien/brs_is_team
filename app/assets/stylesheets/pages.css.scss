@@ -32,14 +32,10 @@
   padding-top: 15px;
 }
 
-/* Thu vie bootstrap */
-
-.btn-xl {
-  color: warning;
-}
+/* Thu vien bootstrap */
 
 .content-section-a {
-  padding: 0px 0;
+  padding: 50px 0;
   background-color: #f8f8f8;
 }
 
@@ -75,6 +71,10 @@
 .banner-social-buttons {
   float: right;
   margin-top: 0;
+}
+
+.btn-xl {
+  color: warning;
 }
 
 section#feed_back {
@@ -249,7 +249,6 @@ fieldset[disabled] .btn-xl.active {
 .td-about-image img{
   width: 100%;
 }
-
 .book_library-heading {
   margin: 15px 0;
   text-transform: none;
