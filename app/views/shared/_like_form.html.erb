@@ -1,0 +1,8 @@
+<div id="nht-like-<%= activity.id %>" class="nht-like">
+  <% if current_user.like? activity %>
+    <%= render "shared/unlike", activity: activity,
+      like: current_user.likes.find_by(activity_id: activity.id) %>
+  <% else %>
+    <%= render "shared/like", activity: activity %>
+  <% end %>
+</div>

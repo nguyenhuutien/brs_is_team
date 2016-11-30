@@ -1,0 +1,9 @@
+en:
+  activity:
+    all: Activities
+    review: reviews
+    comment: comments
+    follow: follows
+    unfollow: unfollows
+    you: You
+    ago: ago

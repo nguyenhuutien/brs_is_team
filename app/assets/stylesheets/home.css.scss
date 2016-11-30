@@ -2,6 +2,19 @@
   max-width: 1400px !important;
   margin-top: 80px !important;
 
+  .nht-activity {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 50vh;
+    margin-bottom: 5px;
+
+    li {
+      list-style-type: none;
+      text-align: left;
+      margin-left: 10px;
+    }
+  }
+
   .nht-book-most:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -50,9 +63,7 @@
     }
   }
 
-  #nht-middle {
-    .nht-reviews {
-      text-align: center;
-    }
+  .nht-reviews {
+    text-align: center;
   }
 }

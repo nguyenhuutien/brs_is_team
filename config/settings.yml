@@ -1,6 +1,8 @@
 size_logo: "40x40"
 minimum_password_length: 6
 per_page: 8
+activity_length: 15
+content_length: 30
 rate:
   load_five_star: 5
   load_four_star: 4

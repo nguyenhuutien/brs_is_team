@@ -1,0 +1,20 @@
+<hr>
+<li>
+  <% if current_user == activity.owner %>
+    <%= t "activity.you" %>
+  <% else %>
+    <span title="<%= activity.owner.name %>">
+      <%= link_to truncate(activity.owner.name, length: Settings.activity_length),
+        activity.owner %>
+    </span>
+  <% end %>
+  <%= activity.key %>
+  <span>
+    <%= link_to_object activity %>
+  </span>
+  <span class="small">
+    <%= time_ago_in_words activity.created_at %>
+    <%= t "activity.ago" %>
+  </span>
+  <span><%= render "shared/like_form", activity: activity %></span>
+</li>
