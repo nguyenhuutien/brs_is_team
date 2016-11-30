@@ -3,7 +3,6 @@
     <tr>
       <th><%= sort_link @q, :photo, t("book.photo") %></th>
       <th><%= sort_link @q, :title, t("book.title") %></th>
-      <th><%= sort_link @q, :category, t("book.category") %></th>
       <th><%= sort_link @q, :author, t("book.author") %></th>
       <th><%= sort_link @q, :rate, t("book.rate") %></th>
       <th><%= sort_link @q, :pages, t("book.pages") %></th>
@@ -21,10 +20,6 @@
         </td>
         <td>
           <%= link_to book.title, [:admin, book], remote: true %>
-        </td>
-
-        <td>
-          <%= link_to book.category.name, [:admin, book.category] %>
         </td>
 
         <td>

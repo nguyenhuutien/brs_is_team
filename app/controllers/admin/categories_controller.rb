@@ -6,4 +6,9 @@ class Admin::CategoriesController < Admin::AdminController
     @q = @categories.ransack params[:q]
     @categories = @q.result.page(params[:page]).per Settings.per_page
   end
+
+  def show
+    @q = @category.books.ransack params[:q]
+    @books = @q.result.page(params[:page]).per Settings.per_page
+  end
 end
