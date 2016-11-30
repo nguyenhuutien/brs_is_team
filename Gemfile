@@ -9,6 +9,10 @@ gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
+gem "bootstrap-sass", "3.2.0.0"
+gem "font-awesome-rails"
+gem "config"
+gem "devise"
 
 group :development, :test do
   gem "byebug", platform: :mri
