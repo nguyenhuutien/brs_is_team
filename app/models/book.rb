@@ -6,5 +6,5 @@ class Book < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  STATUS = ["reading", "read"]
+  STATUS = ["reading", "read", "favorite"]
 end

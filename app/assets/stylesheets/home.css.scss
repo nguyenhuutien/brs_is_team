@@ -2,6 +2,10 @@
   max-width: 1400px !important;
   margin-top: 80px !important;
 
+  .nht-book-most:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
   .nht-profile-avatar {
     height: 106px;
     width: 106px;
@@ -46,7 +50,9 @@
     }
   }
 
-  .nht-reviews {
-    text-align: center;
+  #nht-middle {
+    .nht-reviews {
+      text-align: center;
+    }
   }
 }

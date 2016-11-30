@@ -1,0 +1,20 @@
+<div class="col-sm-10 col-xs-12 col-md-12 col-lg-12 nht-list_book">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= link_to "<i class='fa fa-times' aria-hidden='true'></i>".html_safe, "#",
+        data: {dismiss: "modal"}, class: "close" %>
+      <h1><%= @title.humanize %></h1>
+      <% books.each do |book| %>
+        <div class="col-sm-6 col-sm-4 col-md-3 col-log-3 nht-list-book-content">
+          <%= link_to book do %>
+            <%= image_tag book.photo.url, class: "nht-book-photo", alt: book.title %>
+          <% end %>
+          <p class="nht-book-author"><%= book.author %></p>
+          <hr>
+        </div>
+      <% end %>
+      <%= paginate books %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

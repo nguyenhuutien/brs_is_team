@@ -21,6 +21,8 @@ gem "fog"
 gem "faker"
 gem "pry"
 gem "cancancan", "~> 1.10"
+gem "kaminari"
+gem "kaminari-bootstrap", "~> 3.0.1"
 
 group :development, :test do
   gem "byebug", platform: :mri

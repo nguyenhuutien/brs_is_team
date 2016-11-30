@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root "pages#index"
   get "/pages/:page", to: "pages#show"
 
-  resources :users
+  resources :users do
+    resources :list_books
+  end
   resources :feed_backs, only: [:new, :create]
   resources :books
   resources :reviews
