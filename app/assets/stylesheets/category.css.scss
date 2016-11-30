@@ -1,7 +1,8 @@
  .nht-categories {
-  overflow:hidden;
-  overflow-y:scroll;
-  height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 80vh;
+  height: auto
  }
 
 .nht-category {

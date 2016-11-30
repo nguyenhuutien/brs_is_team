@@ -19,6 +19,7 @@ class Ability
         can :read, Book
         can :read, Category
         can :manage, Request, user_id: user.id
+        can :destroy, Like, user_id: user.id
       end
     end
   end

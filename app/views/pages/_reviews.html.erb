@@ -1,0 +1,32 @@
+<div class="nht-reviews">
+  <h2><%= t "review.title" %></h2>
+</div>
+<% @reviews.each do |review| %>
+  <div class="w3-container w3-card-2 w3-white w3-round w3-margin nht-review-index">
+    <%= link_to review.user do %>
+      <%= image_tag review.user.image.url, class: "w3-left w3-circle w3-margin-right img-circle",
+        alt: "Avatar" %>
+      <p><strong><%= review.user.name %></strong></p>
+    <% end %>
+    <div class="nht-review-title-book"><%= link_to review.book.title, review.book %></div>
+    <%= review.title %>
+    <% review.rate.times do %>
+      <i class="fa fa-star fa-fw w3-text-theme"></i>
+    <% end %>
+    <span class="small">
+      <%= time_ago_in_words review.created_at %>
+      <%= t "review.ago" %>
+    </span>
+    <hr class="w3-clear">
+    <div class="w3-row-padding nht-review">
+      <%= review.content %>
+    </div>
+    <div class="nht-btn-like-cmt">
+      <%= render "shared/like_form", review: review %>
+      <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
+        <i class="fa fa-comment"></i> <%= t "review.comment" %>
+      </button>
+    </div>
+  </div>
+<% end %>
+<%= paginate @reviews %>

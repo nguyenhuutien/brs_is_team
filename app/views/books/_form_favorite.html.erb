@@ -1,7 +1,7 @@
 <% if mark.favorite? %>
   <%= link_to "<i class='fa fa-star nht-bookmark-icon'></i>".html_safe,
-    mark_path(mark: {favorite: false}), method: :patch, remote: true %>
+    mark_path(mark, mark: {favorite: false}), method: :patch, remote: true %>
 <% else %>
   <%= link_to "<i class='fa fa-star-o nht-bookmark-icon'></i>".html_safe,
-    mark_path(mark: {favorite: true}), method: :patch, remote: true %>
+    mark_path(mark, mark: {favorite: true}), method: :patch, remote: true %>
 <% end %>

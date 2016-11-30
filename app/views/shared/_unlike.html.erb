@@ -1,1 +1,5 @@
-<%= link_to t(:unlike), activity_like_path(activity, like), method: :delete, remote: true %>
+<%= link_to review_like_path(review, like), method: :delete, remote: true,
+  class: "w3-btn w3-theme-d1 w3-margin-bottom" do %>
+  <i class="fa fa-thumbs-up"></i>
+  <%= t "review.unlike" %>
+<% end %>

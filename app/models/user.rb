@@ -14,6 +14,10 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
+    foreign_key: "owner_id", dependent: :destroy
+
+  scope :all_users, -> {where admin: false}
 
   scope :all_users, -> {where admin: false}
 
@@ -38,8 +42,8 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
-  def like? activity
-    self.likes.find_by(activity_id: activity.id) ? true : false
+  def like? review
+    self.likes.find_by(review_id: review.id) ? true : false
   end
 
   Book::STATUS.each do |status|
