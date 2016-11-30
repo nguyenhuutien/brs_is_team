@@ -27,3 +27,30 @@
     }
   }
 }
+
+.nht-admin-category {
+
+  .modal-dialog {
+    .modal-content {
+      margin-top: 100px !important;
+      padding: 20px !important;
+
+      .input-group {
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .nht-icon {
+        font-size: 1.4em !important;
+      }
+    }
+  }
+}
+
+.nht-admin-btn-category {
+  margin-right: 5px;
+  float: right;
+}

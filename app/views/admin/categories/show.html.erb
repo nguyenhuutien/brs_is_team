@@ -26,6 +26,14 @@
     <div id="nht-admin-book-index">
       <%= render "book_index" %>
     </div>
+    <%= link_to t("category.delete"), admin_category_path(@category), method: :delete,
+      data: {confirm: t("category.confirm")}, class: "btn btn-danger nht-admin-btn-category" %>
+    <%= link_to t("category.edit"), edit_admin_category_path(@category), remote: true,
+      class: "btn btn-primary nht-admin-btn-category" %>
+    <div class="clearfix"></div>
   </div>
+  <div class="clearfix"></div>
 </div>
+
 <div id="admin-book-modal" class="modal fade"></div>
+<div id="admin-category-form" class="modal fade"></div>

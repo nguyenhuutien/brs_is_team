@@ -1,0 +1,23 @@
+<div class="col-sm-10 col-xs-10 col-md-10 col-lg-10 col-sm-offset-1
+  col-xs-offset-1 col-md-offset-1 col-lg-offset-1 nht-admin-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h1><%= t "category.edit" %></h1>
+      <%= form_for [:admin, @category], remote: true do |f| %>
+        <div id="nht-category-errors"></div>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-info nht-icon" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :name, placeholder: t("category.name"),
+            class: "form-control" %>
+        </div>
+
+        <%= f.submit t("category.save"), class: "btn btn-primary nht-admin-btn-category" %>
+        <%= link_to t("category.cancel"), "#", data: {dismiss: "modal"},
+          class: "btn btn-danger nht-admin-btn-category" %>
+        <div class="clearfix"></div>
+      <% end %>
+    </div>
+  </div>
+</div>

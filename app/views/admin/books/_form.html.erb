@@ -1,0 +1,65 @@
+<div class="col-sm-10 col-xs-10 col-md-10 col-lg-10 col-sm-offset-1
+  col-xs-offset-1 col-md-offset-1 col-lg-offset-1 nht-admin-book-edit">
+  <h1><%= t "book.edit" %></h1>
+  <%= form_for [:admin, @book], remote: true do |f| %>
+    <div id="nht-book-errors"></div>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-th-list nht-icon" aria-hidden="true"></i>
+      </span>
+      <%=  f.select :category_id, @categories.collect {|category|
+        [category.name, category.id]}, {},
+        class: "form-control" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-info nht-icon" aria-hidden="true"></i>
+      </span>
+      <%= f.text_field :title, placeholder: t("book.title"),
+        class: "form-control" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-user nht-icon" aria-hidden="true"></i>
+      </span>
+      <%= f.text_field :author, placeholder: t("book.author"),
+        class: "form-control" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-file nht-icon" aria-hidden="true"></i>
+      </span>
+      <%= f.number_field :pages, class: "form-control" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="fa fa-calendar nht-icon"></span>
+      </span>
+      <%= f.text_field :publish_date, class: "form-control",
+        placeholder: t("book.publish_date"),
+        data: {provide: "datepicker"} %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-file-image-o nht-icon" aria-hidden="true"></i>
+      </span>
+      <%= f.file_field :photo, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.label :description, t("book.description") %>
+      <%= f.text_area :description, placeholder: t("book.description"),
+        class: "form-control nht-book-description" %>
+    </div>
+
+    <%= f.submit t("book.save"), class: "btn btn-primary nht-admin-btn-book" %>
+    <%= link_to t("book.cancel"), "#", data: {dismiss: "modal"},
+      class: "btn btn-danger nht-admin-btn-book" %>
+    <div class="clearfix"></div>
+  <% end %>
+</div>
