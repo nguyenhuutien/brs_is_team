@@ -8,3 +8,6 @@ en:
     create: Create
     enter_title: Enter your title
     enter_content: Enter your content
+    edit: Edit
+    delete: Delete
+    you_sure: Are you sure?

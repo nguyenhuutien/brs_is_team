@@ -16,13 +16,18 @@
       </span>
 
       <span class="small">
-        <%= time_ago_in_words review.created_at %>
+        <%= time_ago_in_words review.updated_at %>
         <%= t "review.ago" %>
       </span>
     </div>
 
     <%= simple_format(review.content) %>
-
+    <% if can?(:update, review) && can?(:destroy, review) %>
+      <%=  link_to t("review.edit"), edit_book_review_path(review.book, review),
+        remote: true %>
+      <%=  link_to t("review.delete"), book_review_path(review.book, review),
+        method: :delete, data: {confirm: t("review.you_sure")}, remote: true %>
+    <% end %>
     <div>
       <div class="nht-sum-like-cmt" id="nhr-sum-like-cmt-<%= review.id %>">
         <%= render "shared/sum_like_cmt", review: review %>

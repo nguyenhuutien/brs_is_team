@@ -1,0 +1,24 @@
+$('#review_form').html('<%= j render "form", title: "Save" %>')
+CKEDITOR.replace('ckeditor');
+var top_review = $('#review_form').position().top;
+$('html, body').stop().animate({scrollTop: top_review - 200}, 500);
+$('.nht-review-rate i').removeClass('nht-star');
+rate = <%= @review.rate %>
+star = $('.nht-review-rate i').first();
+for (var i = 0; i < rate; i++) {
+  star.addClass('nht-star');
+  star = star.next();
+}
+
+$('.nht-review-rate i').mouseover(function(evt){
+  var name = this.className.split('-');
+  var number = parseInt(name[name.length-1]);
+  number++;
+  $('.nht-review-rate i').removeClass('nht-star');
+  var a = $(this);
+  for (var i = 0; i < number; i++) {
+    a.addClass('nht-star');
+    a = a.prev();
+  }
+  document.getElementById('review_rate').value = number;
+});
