@@ -1,3 +1,4 @@
 en:
   category:
     all_category: All categories
+    all_book: All books in '%{category}'

@@ -1,0 +1,31 @@
+<div class="nht-admin-book-index">
+  <h1><%= t "category.all_book", category: @category.name %></h1>
+  <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+    <div class="nht-admin-search-form">
+      <%= search_form_for @q, url: admin_category_path(@category) do |f| %>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-info nht-icon" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :title_cont,placeholder: t("book.title"),
+            class: "form-control" %>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user nht-icon" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :author_cont,placeholder: t("book.author"),
+            class: "form-control" %>
+        </div>
+        <div class="nht-btn-search">
+          <%= f.submit t(:search), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <div id="nht-admin-book-index">
+      <%= render "book_index" %>
+    </div>
+  </div>
+</div>
+<div id="admin-book-modal" class="modal fade"></div>
