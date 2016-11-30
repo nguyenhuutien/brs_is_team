@@ -21,3 +21,9 @@ en:
     photo: Photo
     created_at: Created at
     updated_at: Updated at
+    delete: Delete
+    confirm: Are you sure?
+    edit: Edit book
+    save: Save
+    cancel: Cancel
+    success: Successful

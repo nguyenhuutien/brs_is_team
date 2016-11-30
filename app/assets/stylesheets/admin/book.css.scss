@@ -2,6 +2,11 @@
   min-height: 100%;
   height: auto;
 
+  .nht-admin-btn-category {
+    float: right;
+    margin-bottom: 20px;
+  }
+
   h1 {
     text-align: center;
     margin: 0px;
@@ -52,6 +57,12 @@
         top: 5px;
         right: 5px;
       }
+
+      .nht-admin-btn-book {
+        float: right;
+        margin: 20px;
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -78,5 +89,26 @@
         text-align: center;
       }
     }
+  }
+}
+
+.nht-admin-book-edit {
+  h1 {
+    text-align: center;
+  }
+
+  .input-group {
+    margin-bottom: 10px !important;
+
+    .nht-icon {
+      font-size: 1.4em !important;
+      width: 20px;
+    }
+  }
+
+  .nht-book-description {
+    max-height: 350px;
+    min-height: 200px;
+    height: auto;
   }
 }

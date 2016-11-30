@@ -4,44 +4,8 @@
     <div class="modal-content">
       <%= link_to "<i class='fa fa-times' aria-hidden='true'></i>".html_safe, "#",
         data: {dismiss: "modal"}, class: "close" %>
-      <div class="nht-book-box padding">
-        <h2 class="nht-book-address-top">
-          <%= @book.title %>
-        </h2>
-        <hr>
-
-        <div class="nht-admin-book-content">
-          <div class="col-sm-12 col-xs-10 col-md-4 col-lg-4 nht-book-content-left">
-            <%= image_tag @book.photo.url, class: "nht-book-photo" %>
-            <div class="nht-book-detail">
-              <p class="author"><%= @book.author %></p>
-              <p class="publish_date"><em><%= l @book.publish_date, format: :default %></em></p>
-
-              <div class="title">
-                <p class="nht-book-attribute"><%= t "book.pages" %>:</p>
-                <span class="nht-book-attribute-value"> <%= @book.pages %></span>
-                <div class="clearfix"></div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-
-          <div class="col-md-8 col-lg-8 nht-book-content-right">
-            <div class="nht-book-content-right-detail">
-              <div class="nht-book-description">
-                <h4 class="nht-book-description-title">
-                  <%= t "book.description" %>
-                </h4>
-                <div class="nht-book-description-content">
-                  <%= @book.description %>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
+      <div class="nht-book-box padding" id="nht-admin-book-content">
+        <%= render "book_show" %>
       </div>
     </div>
   </div>
