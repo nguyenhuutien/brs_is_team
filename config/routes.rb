@@ -24,6 +24,6 @@ Rails.application.routes.draw do
     root to: "books#index", as: :root
     resources :categories
     resources :books
-    resources :users
+    resources :users, only: [:index, :show, :destroy]
   end
 end
