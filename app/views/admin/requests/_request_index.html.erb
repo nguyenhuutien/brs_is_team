@@ -1,0 +1,52 @@
+<table class="table table-bordered table-striped table-hover nht-admin-request-table">
+  <thead class="thead-default">
+    <tr>
+      <th><%= sort_link @q, t("request.user") %></th>
+      <th><%= sort_link @q, :book_title, t("request.book_title") %></th>
+      <th><%= sort_link @q, :book_publish_date, t("request.book_publish_date") %></th>
+      <th><%= sort_link @q, :book_author, t("request.book_author") %></th>
+      <th><%= sort_link @q, :created_at, t("request.created_at") %></th>
+      <th><%= sort_link @q, :updated_at, t("request.updated_at") %></th>
+      <th><%= sort_link @q, t("request.status") %></th>
+      <th><%= sort_link @q, t("request.action") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td>
+          <%= request.user.name %>
+        </td>
+
+        <td>
+          <%= request.book_title %>
+        </td>
+
+        <td>
+          <%= request.book_publish_date %>
+        </td>
+
+        <td>
+          <%= request.book_author %>
+        </td>
+
+        <td>
+          <%= l request.created_at, format: :default %>
+        </td>
+
+        <td>
+          <%= l request.updated_at, format: :default %>
+        </td>
+
+        <td>
+          <%= request.status %>
+        </td>
+
+        <td>
+        <%= render "action", request: request %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @requests, remote: true %>

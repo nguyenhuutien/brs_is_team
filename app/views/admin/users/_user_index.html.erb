@@ -1,14 +1,14 @@
 <table class="table table-bordered table-striped table-hover">
   <thead class="thead-default">
     <tr>
-      <th><%= t("user.image") %></th>
+      <th><%= sort_link @q, t("user.image") %></th>
       <th><%= sort_link @q, :name, t("user.name") %></th>
       <th><%= sort_link @q, :email, t("user.email") %></th>
       <th><%= sort_link @q, :last_sign_in_at, t("user.last_sign_in_at") %></th>
       <th><%= sort_link @q, :last_sign_in_ip, t("user.last_sign_in_ip") %></th>
       <th><%= sort_link @q, :created_at, t("user.created_at") %></th>
       <th><%= sort_link @q, :updated_at, t("user.updated_at") %></th>
-      <th><%= t "user.action" %></th>
+      <th><%= sort_link @q, t("user.action") %></th>
     </tr>
   </thead>
   <tbody>

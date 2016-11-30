@@ -5,20 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# 5.times do |n|
-#   name  = Faker::Name.name
-#   email = "example-#{n+1}@gmail.com"
-#   password = "123456"
-#   User.create!(name: name, email: email, password: password,
-#     password_confirmation: password)
-# end
+5.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@gmail.com"
+  password = "123456"
+  User.create!(name: name, email: email, password: password,
+    password_confirmation: password)
+end
 
-# User.create! name: "Nguyen Huu Tien", email: "tiennh1995@gmail.com", password: "123456",
-#   password_confirmation: "123456", admin: true
+User.create! name: "Nguyen Huu Tien", email: "tiennh1995@gmail.com", password: "123456",
+  password_confirmation: "123456", admin: true
 
-# 2.times do
-#   Category.create! name: Faker::Book.title
-# end
+2.times do
+  Category.create! name: Faker::Book.title
+end
 
 Category.all.each do |category|
   10.times do
@@ -27,14 +27,14 @@ Category.all.each do |category|
   end
 end
 
-# User.all.each do |user|
-#   Book.all.each do |book|
-#     user.reviews.create! content: "Tất cả những trải nghiệm trong chuyến phiêu du theo đuổi vận mệnh của mình đã giúp Santiago thấu hiểu được ý nghĩa sâu xa nhất của hạnh phúc, hòa hợp với vũ trụ và con người.Tiểu thuyết Nhà giả kim của Paulo Coelho như một câu chuyện cổ tích giản dị, nhân ái, giàu chất thơ, thấm đẫm những minh triết huyền bí của phương Đông.",
-#       title: "Good book", rate: 3, book_id: book.id
-#   end
-# end
+User.all.each do |user|
+  Book.all.each do |book|
+    user.reviews.create! content: "Tất cả những trải nghiệm trong chuyến phiêu du theo đuổi vận mệnh của mình đã giúp Santiago thấu hiểu được ý nghĩa sâu xa nhất của hạnh phúc, hòa hợp với vũ trụ và con người.Tiểu thuyết Nhà giả kim của Paulo Coelho như một câu chuyện cổ tích giản dị, nhân ái, giàu chất thơ, thấm đẫm những minh triết huyền bí của phương Đông.",
+      title: "Good book", rate: 3, book_id: book.id
+  end
+end
 
-# 1.times do
-#   Request.create! user_id: 1, book_title: Faker::Book.title, book_author: Faker::Book.author,
-#     book_publish_date: Date.new(2016, 11, 9)
-# end
+1.times do
+  Request.create! user_id: 1, book_title: Faker::Book.title, book_author: Faker::Book.author,
+    book_publish_date: Date.new(2016, 11, 9)
+end

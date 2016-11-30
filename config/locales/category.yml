@@ -6,5 +6,9 @@ en:
     confirm: Are you sure?
     success: Successful
     save: Save
+    cancel: Cancel
     name: Name
     edit: Edit category
+    sum_book: Sum book
+    created_at: Created at
+    updated_at: Updated at
