@@ -1,0 +1,44 @@
+<h1><%= t "request._new" %></h1>
+<div class="nht-request-new">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <%= form_for [current_user, @request] do |f| %>
+            <%= render "shared/error_messages", object: @request %>
+
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-book nht-icon" aria-hidden="true"></i>
+              </span>
+              <%= f.text_field :book_title, class: "form-control",
+                placeholder: t("request.book_title") %>
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user nht-icon" aria-hidden="true"></i>
+              </span>
+              <%= f.text_field :book_author, class: "form-control",
+                placeholder: t("request.book_author") %>
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">
+                <span class="fa fa-calendar nht-icon"></span>
+              </span>
+              <%= f.text_field :book_publish_date, class: "form-control",
+                placeholder: t("request.book_publish_date"),
+                data: {provide: "datepicker"} %>
+            </div>
+
+            <%= f.submit t("request.new"), class: "btn btn-primary nht-btn-request-new" %>
+            <%= link_to "<i class='fa fa-times' aria-hidden='true'></i>".html_safe, "#",
+              data: {dismiss: "modal"}, class: "close" %>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

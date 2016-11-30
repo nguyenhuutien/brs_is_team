@@ -14,6 +14,7 @@ class Ability
       can :read, Book
       can :manage, Mark, user_id: user.id
       can :read, Category
+      can :manage, Request, user_id: user.id
     end
   end
 end

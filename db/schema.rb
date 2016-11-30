@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 20161130035846) do
     t.string   "book_title"
     t.date     "book_publish_date"
     t.string   "book_author"
-    t.integer  "status"
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

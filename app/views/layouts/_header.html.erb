@@ -16,8 +16,8 @@
     </li>
 
     <li class="w3-hide-small">
-      <%= link_to "#", class: "w3-padding-large w3-hover-white" do %>
-        <i class="fa fa-globe"></i>
+      <%= link_to user_requests_path(current_user), class: "w3-padding-large w3-hover-white" do %>
+        <i class="fa fa-envelope-open"></i>
       <% end %>
     </li>
 
@@ -36,6 +36,12 @@
           <%= link_to category.name, category %>
         <% end %>
       </div>
+    </li>
+
+    <li class="w3-hide-small">
+      <%= link_to "#", class: "w3-padding-large w3-hover-white" do %>
+        <i class="fa fa-globe"></i>
+      <% end %>
     </li>
 
     <li class="w3-hide-small w3-right w3-dropdown-hover">

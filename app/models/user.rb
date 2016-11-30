@@ -21,10 +21,6 @@ class User < ApplicationRecord
       WHERE follower_id = ?)", self.id, self.id)
   end
 
-  def favorite_books
-    Book.take(6)
-  end
-
   def follow other_user
     active_relationships.create followed_id: other_user.id
   end
