@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get "/pages/:page", to: "pages#show"
 
   resources :users do
-    resources :list_books
+    resources :list_books, only: :index
   end
   resources :feed_backs, only: [:new, :create]
-  resources :books
+  resources :books, only: [:show, :index]
   resources :reviews
-  resources :categories
+  resources :categories, only: [:show, :index]
   resources :follows, only: [:create, :destroy]
-  resources :marks
+  resources :marks, only: :update
 end

@@ -1,0 +1,43 @@
+<div class="nht-category">
+  <h2><%= @category.name %></h2>
+  <div class="row">
+    <div class="col-xs-10 col-sm-8 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1
+      col-md-offset-1 col-lg-offset-1">
+      <%= search_form_for @q, url: category_path(@category), class: "navbar-form" do |f| %>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-info nht-icon" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :title_cont,placeholder: t("book.title"),
+            class: "form-control" %>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user nht-icon" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :author_cont,placeholder: t("book.author"),
+            class: "form-control" %>
+        </div>
+        <div class="nht-btn-search">
+          <%= f.submit t(:search), class: "btn btn-primary" %>
+        </div>
+        <hr>
+        <div class="clearfix"></div>
+      <% end %>
+      <div class="col-sm-10 col-xs-12 col-md-12 col-lg-12 nht-list_book">
+        <% @books.each do |book| %>
+          <div class="col-sm-6 col-sm-4 col-md-3 col-log-3 nht-list-book-content">
+            <%= link_to book do %>
+              <%= image_tag book.photo.url, class: "nht-book-photo", alt: book.title %>
+            <% end %>
+            <p class="nht-book-author"><%= book.author %></p>
+            <hr>
+          </div>
+        <% end %>
+        <%= paginate @books %>
+      </div>
+    </div>
+  </div>
+</div>
