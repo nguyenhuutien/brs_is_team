@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :feed_backs, only: [:new, :create]
   resources :books
+  resources :reviews
   resources :categories
 end

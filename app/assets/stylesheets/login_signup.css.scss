@@ -1,5 +1,5 @@
 #loginbox {
-  margin-top:50px;
+  margin-top: 20px;
 }
 .panel-body {
   padding-top:30px;
@@ -10,7 +10,7 @@
 }
 
 .social-buttons{
-  margin: 20px 0;
+  margin: 0px 0;
 }
 .social-buttons a{
   width: 30%;
@@ -35,7 +35,7 @@
 
 /* signup */
 #signupbox {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 #signin-button {
@@ -59,4 +59,8 @@
 .signup-sbtn {
   margin: 0 10px;
   width: 40%;
+}
+
+.nht-btn-login {
+  margin-bottom: 20px !important;
 }

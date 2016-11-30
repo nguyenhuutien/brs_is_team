@@ -7,3 +7,10 @@ en:
     favorite: favorite
     most_book: The most book popular
     detail: Detail
+    category: Category
+    publish_date: Publish date
+    rate: Rate
+    review: Reviews
+    pages: Pages
+    other_book: Other book
+    sum_rate: Sum
