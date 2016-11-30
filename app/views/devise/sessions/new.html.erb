@@ -39,6 +39,17 @@
             <div class="col-sm-12 controls">
               <%= f.submit t("sessions.new.title"),
                 class: "btn btn-lg btn-primary btn-block" %>
+              <div class="social-buttons">
+                <%= t "sessions.new.social" %>
+                <% if devise_mapping.omniauthable? %>
+                  <% resource_class.omniauth_providers.each do |provider| %>
+                    <%= link_to omniauth_authorize_path(resource_name, provider),
+                      class: "btn btn-#{provider}" do %>
+                      <i class="fa fa-<%= provider %>"></i><%= t provider %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
 
@@ -48,7 +59,7 @@
                 <% if devise_mapping.registerable? && controller_name != "registrations" %>
                   <%= t "sessions.new.new_here" %>
                   <b>
-                    <%= link_to t(:sign_up),
+                    <%= link_to t("signup.sign_up"),
                       new_registration_path(resource_name) %>
                   </b>
                 <% end %>

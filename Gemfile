@@ -13,6 +13,8 @@ gem "bootstrap-sass", "3.2.0.0"
 gem "font-awesome-rails"
 gem "config"
 gem "devise"
+gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "byebug", platform: :mri
