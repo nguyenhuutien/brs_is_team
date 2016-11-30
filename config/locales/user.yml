@@ -6,8 +6,16 @@ en:
     email: Email
     current_password: Current password
     name: Name
+    image: Image
+    last_sign_in_at: Last sign in
+    last_sign_in_ip: Last sign in IP
+    created_at: Created at
+    updated_at: Updated at
     follow: Follow
     unfollow: UnFollow
     update_success: Update profile successful
     update_fail: Update profile fail
     all_user: All users
+    action: Action
+    confirm: Are you sure?
+    delete: Delete

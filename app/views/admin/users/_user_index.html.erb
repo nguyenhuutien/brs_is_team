@@ -1,0 +1,53 @@
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th><%= t("user.image") %></th>
+      <th><%= sort_link @q, :name, t("user.name") %></th>
+      <th><%= sort_link @q, :email, t("user.email") %></th>
+      <th><%= sort_link @q, :last_sign_in_at, t("user.last_sign_in_at") %></th>
+      <th><%= sort_link @q, :last_sign_in_ip, t("user.last_sign_in_ip") %></th>
+      <th><%= sort_link @q, :created_at, t("user.created_at") %></th>
+      <th><%= sort_link @q, :updated_at, t("user.updated_at") %></th>
+      <th><%= t "user.action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= image_tag user.image.url, class: "nht-user-image" %>
+        </td>
+
+        <td>
+          <%= user.name  %>
+        </td>
+
+        <td>
+          <%=  user.email %>
+        </td>
+
+        <td>
+          <%= user.last_sign_in_at %>
+        </td>
+
+        <td>
+          <%= user.last_sign_in_ip %>
+        </td>
+
+        <td>
+          <%= l user.created_at, format: :default %>
+        </td>
+
+        <td>
+          <%= l user.updated_at, format: :default %>
+        </td>
+
+        <td>
+          <%= link_to t("user.delete"), admin_user_path(user), method: :delete, data: {
+            confirm: t("user.confirm")}, remote: true, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users, remote: true %>
