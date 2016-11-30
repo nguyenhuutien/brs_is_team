@@ -1,0 +1,14 @@
+size_logo: "40x40"
+minimum_password_length: 6
+rate:
+  load_five_star: 5
+  load_four_star: 4
+  load_three_star: 3
+  load_two_star: 2
+  load_one_star: 1
+  list_rate:
+    - load_five_star
+    - load_four_star
+    - load_three_star
+    - load_two_star
+    - load_one_star

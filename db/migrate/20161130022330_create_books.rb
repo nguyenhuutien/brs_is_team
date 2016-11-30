@@ -4,10 +4,10 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :description
       t.date :publish_date
+      t.string :author
       t.integer :pages
       t.string :photo
-      t.integer :sum_rate
-      t.integer :sum_point
+      t.float :rate
       t.references :category, foreign_key: true
 
       t.timestamps
