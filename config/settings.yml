@@ -1,5 +1,6 @@
 size_logo: "40x40"
 minimum_password_length: 6
+per_page: 8
 rate:
   load_five_star: 5
   load_four_star: 4
@@ -12,3 +13,12 @@ rate:
     - load_three_star
     - load_two_star
     - load_one_star
+book:
+  list_status:
+    - reading
+    - read
+    - favorite
+  list_book:
+    - list_reading
+    - list_read
+    - list_favorite

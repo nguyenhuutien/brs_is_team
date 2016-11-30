@@ -31,18 +31,27 @@
           </p>
           <p>
             <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
-            <%= current_user.reading %>
-            <%= t "book.reading" %>
+            <%= link_to user_list_books_path(current_user,
+              book_status: Settings.book.list_book[0]), remote: true do %>
+              <%= current_user.size_reading %>
+              <%= t "book.reading" %>
+            <% end %>
           </p>
           <p>
             <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
-            <%= current_user.read %>
-            <%= t "book.read" %>
+            <%= link_to user_list_books_path(current_user,
+              book_status: Settings.book.list_book[1]), remote: true do %>
+              <%= current_user.size_read %>
+              <%= t "book.read" %>
+            <% end %>
           </p>
           <p>
             <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
-            <%= current_user.favorite %>
-            <%= t "book.favorite" %>
+            <%= link_to user_list_books_path(current_user,
+              book_status: Settings.book.list_book[2]), remote: true do %>
+              <%= current_user.size_favorite %>
+              <%= t "book.favorite" %>
+            <% end %>
           </p>
         </div>
       </div>
@@ -82,7 +91,7 @@
             <div class="nht-review-title-book"><%= link_to review.book.title, review.book %></div>
             <%= review.title %>
             <% review.rate.times do %>
-              <i class="fa fa-star fa-fw w3-text-theme"></i>
+            <i class="fa fa-star fa-fw w3-text-theme"></i>
             <% end %>
             <hr class="w3-clear">
             <div class="w3-row-padding nht-review">
@@ -96,10 +105,9 @@
                 <i class="fa fa-comment"></i> <%= t "review.comment" %>
               </button>
             </div>
-
         </div>
       <% end %>
-    <!-- End Middle Column -->
+      <!-- End Middle Column -->
     </div>
 
     <!-- Right Column -->
@@ -108,11 +116,13 @@
         <div class="w3-container">
           <p><%= t "book.most_book" %>:</p>
           <% @books.each do |book| %>
-            <%= link_to book do %>
-              <%= image_tag book.photo.url, class: "width", alt: book.title %>
-            <% end %>
-            <p class="nht-book-author"><%= book.author %></p>
-            <hr>
+            <div class="nht-book-most">
+              <%= link_to book do %>
+                <%= image_tag book.photo.url, class: "width", alt: book.title %>
+              <% end %>
+              <p class="nht-book-author"><%= book.author %></p>
+              <hr>
+            </div>
           <% end %>
         </div>
       </div>
@@ -123,3 +133,4 @@
   </div>
 <!-- End Page Container -->
 </div>
+<div id="list_book-modal" class="modal fade"></div>

@@ -38,12 +38,22 @@ class User < ApplicationRecord
   end
 
   Book::STATUS.each do |status|
-    define_method status do
-      self.marks.send("#{status}").size
+    define_method "size_#{status}" do
+      if status == "favorite"
+        self.marks.where(favorite: true).size
+      else
+        self.marks.send("#{status}").size
+      end
     end
   end
 
-  def favorite
-    self.marks.where(favorite: true).size
+  Book::STATUS.each_with_index do |status, i|
+    define_method "list_#{status}" do
+      if status == "favorite"
+        Book.eager_load(:marks).where("favorite = 't' AND user_id = ?", self.id)
+      else
+        Book.eager_load(:marks).where("mark_read = ? AND user_id = ?", i + 1, self.id)
+      end
+    end
   end
 end

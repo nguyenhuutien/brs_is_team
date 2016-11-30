@@ -201,3 +201,41 @@
   border-radius: 4px;
   padding: 10px;
 }
+
+.nht-list_book {
+  text-align: center;
+
+  .nht-list-book-content:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .modal-dialog {
+    width: 80% !important;
+
+    .modal-content {
+      position: relative;
+      padding: 10px !important;
+
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 2em;
+      }
+
+      .nht-list-book-content {
+        padding-top: 10px;
+
+        .nht-book-photo {
+          height: 200px;
+          margin-bottom: 10px;
+        }
+
+        .hr {
+          margin-top: 0px !important;
+          margin-bottom: 5px !important;
+        }
+      }
+    }
+  }
+}

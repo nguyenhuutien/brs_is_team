@@ -22,57 +22,85 @@
             </i>
             <%= l @user.created_at, format: :default %>
           </p>
+          <p>
+            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
+            <%= link_to user_list_books_path(@user,
+              book_status: Settings.book.list_book[0]), remote: true do %>
+              <%= @user.size_reading %>
+              <%= t "book.reading" %>
+            <% end %>
+          </p>
+          <p>
+            <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
+            <%= link_to user_list_books_path(@user,
+              book_status: Settings.book.list_book[1]), remote: true do %>
+              <%= @user.size_read %>
+              <%= t "book.read" %>
+            <% end %>
+          </p>
+          <p>
+            <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
+            <%= link_to user_list_books_path(@user,
+              book_status: Settings.book.list_book[2]), remote: true do %>
+              <%= @user.size_favorite %>
+              <%= t "book.favorite" %>
+            <% end %>
+          </p>
         </div>
       </div><br>
     </div>
-    <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-lg-8
-      col-md-offset-0 col-lg-offset-0">
-        <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-          <div class="text-center nht-profile-title">
-              <%= t "users.edit_user" %>
+    <% if can? :update, @user %>
+      <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-lg-8
+        col-md-offset-0 col-lg-offset-0">
+          <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <div class="text-center nht-profile-title">
+                <%= t "users.edit_user" %>
+            </div>
+
+            <div class="nht-user-info" id="form_update_user">
+              <%= form_for @user, remote: true do |f| %>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <%= f.text_field :email, class: "form-control",
+                    placeholder: t("user.email"), readonly: true %>
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user user-name" aria-hidden="true"></i>
+                  </span>
+                  <%= f.text_field :name, class: "form-control",
+                    placeholder: t("user.name") %>
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-lock" aria-hidden="true"></i>
+                  </span>
+                  <%= f.text_field :current_password, class: "form-control",
+                    placeholder: t("user.current_password") %>
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                  </span>
+                  <%= f.file_field :image, class: "form-control",
+                    accept: "image/jpeg,image/gif,image/png" %>
+                </div>
+
+                <div class="nht-user-submit">
+                  <%= link_to "Change password", "#", class: "change-password" %>
+                  <%= f.submit t("user.save"), class: "btn btn-primary" %>
+                  <div class="clearfix"></div>
+                </div>
+              <% end %>
+            </div>
           </div>
-          <div class="nht-user-info" id="form_update_user">
-            <%= form_for @user, remote: true do |f| %>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="fa fa-envelope"></i>
-                </span>
-                <%= f.text_field :email, class: "form-control",
-                  placeholder: t("user.email"), readonly: true %>
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="fa fa-user user-name" aria-hidden="true"></i>
-                </span>
-                <%= f.text_field :name, class: "form-control",
-                  placeholder: t("user.name") %>
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="glyphicon glyphicon-lock" aria-hidden="true"></i>
-                </span>
-                <%= f.text_field :current_password, class: "form-control",
-                  placeholder: t("user.current_password") %>
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                </span>
-                <%= f.file_field :image, class: "form-control",
-                  accept: "image/jpeg,image/gif,image/png" %>
-              </div>
-
-              <div class="nht-user-submit">
-                <%= link_to "Change password", "#", class: "change-password" %>
-                <%= f.submit t("user.save"), class: "btn btn-primary" %>
-                <div class="clearfix"></div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+<div id="list_book-modal" class="modal fade"></div>
