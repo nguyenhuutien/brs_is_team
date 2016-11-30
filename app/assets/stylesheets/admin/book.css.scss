@@ -1,0 +1,77 @@
+.nht-admin-book-index {
+  min-height: 100%;
+  height: auto;
+
+  h1 {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+
+  .nht-admin-book-table {
+    width: 100%;
+
+    .nht-admin-book-photo {
+      width: 100px;
+      height: 150px;
+    }
+  }
+  .nht-admin-search-form {
+    text-align: center;
+
+    .input-group {
+      margin: auto;
+      max-width: 500px;
+      margin-bottom: 10px;
+
+      .nht-icon {
+        width: 30px !important;
+        font-size: 1.3em !important;
+      }
+    }
+
+    .nht-btn-search {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.nht-admin-book {
+  .modal-dialog {
+    .modal-content {
+      overflow: hidden;
+      overflow-y: scroll;
+      max-height: 600px;
+      height: auto !important;
+      margin-top: 50px !important;
+      padding-bottom: 20px !important;
+      position: relative;
+
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+  }
+
+  .nht-book-address-top {
+    text-align: center;
+  }
+
+  .nht-admin-book-content {
+    .nht-book-content-left {
+      text-align: center;
+      .author {
+        color: #008340;
+        margin-top: 5px;
+      }
+    }
+
+    .nht-book-content-right {
+      .nht-book-description-title {
+        text-align: center;
+      }
+    }
+  }
+}

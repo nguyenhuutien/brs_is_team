@@ -1,21 +1,21 @@
 <aside class="main-sidebar">
   <section class="sidebar">
     <ul class="sidebar-menu">
-      <li class="active">
+      <li class="nht-category">
         <%= link_to admin_categories_path do %>
           <i class="glyphicon glyphicon-th-list nht-icon"></i>
           <%= t "category.all_category" %>
         <% end %>
       </li>
 
-      <li>
+      <li class="nht-book active">
         <%= link_to admin_books_path do %>
           <i class="fa fa-book nht-icon"></i>
           <%= t "book.all_book" %>
         <% end %>
       </li>
 
-      <li>
+      <li class="nht-user">
         <%= link_to admin_users_path do %>
           <i class="fa fa-user nht-icon"></i>
           <%= t "user.all_user" %>

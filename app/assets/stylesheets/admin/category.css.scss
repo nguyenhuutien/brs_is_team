@@ -1,0 +1,29 @@
+.nht-admin-category-index {
+  min-height: 100vh;
+  height: auto;
+
+  h1 {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+
+  .nht-admin-search-form {
+    text-align: center;
+
+    .input-group {
+      margin: auto;
+      max-width: 500px;
+      margin-bottom: 10px;
+
+      .nht-icon {
+        width: 30px !important;
+        font-size: 1.3em !important;
+      }
+    }
+
+    .nht-btn-search {
+      margin-bottom: 10px;
+    }
+  }
+}

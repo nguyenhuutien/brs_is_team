@@ -20,7 +20,7 @@
           <%= image_tag book.photo.url, class: "nht-admin-book-photo" %>
         </td>
         <td>
-          <%= link_to book.title, [:admin, book] %>
+          <%= link_to book.title, [:admin, book], remote: true %>
         </td>
 
         <td>
