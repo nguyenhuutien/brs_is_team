@@ -3,19 +3,8 @@
   <h1><%= t "request.all" %></h1>
   <%= link_to t("request._new"), new_user_request_path(current_user), remote: true,
     class: "btn btn-primary nht-btn-request" %>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th><%= t "request.book_title" %></th>
-        <th><%= t "request.book_publish_date" %></th>
-        <th><%= t "request.book_author" %></th>
-        <th><%= t "request.action" %></th>
-      </tr>
-    </thead>
-    <tbody id="nht-requests">
-      <%= render "request_index" %>
-    </tbody>
-  </table>
-  <%= paginate @requests, remote: true %>
+  <div id="nht-requests">
+    <%= render "request_index" %>
+  </div>
 </div>
 <div id="request-modal" class="modal fade"></div>

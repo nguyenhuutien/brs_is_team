@@ -11,3 +11,10 @@ en:
     success: Successful
     danger: Failure
     _new: New request
+    user: User
+    created_at: Created at
+    updated_at: Updated at
+    status: Status
+    accept: Accept
+    reject: Reject
+    cancel: Cancel

@@ -1,11 +1,24 @@
-<% @requests.each do |request| %>
-  <tr>
-    <td><%= request.book_title %></td>
-    <td><%= request.book_publish_date %></td>
-    <td><%= request.book_author %></td>
-    <td><%= link_to t("request.delete"), [current_user, request], method: :delete,
-      data: {confirm: t("request.confirm")}, remote:true,
-      class: "btn btn-danger" %>
-    </td>
-  </tr>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= t "request.book_title" %></th>
+      <th><%= t "request.book_publish_date" %></th>
+      <th><%= t "request.book_author" %></th>
+      <th><%= t "request.action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.book_title %></td>
+        <td><%= request.book_publish_date %></td>
+        <td><%= request.book_author %></td>
+        <td><%= link_to t("request.delete"), [current_user, request], method: :delete,
+          data: {confirm: t("request.confirm")}, remote:true,
+          class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @requests, remote: true %>

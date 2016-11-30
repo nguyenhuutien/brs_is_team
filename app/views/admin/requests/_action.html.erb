@@ -1,0 +1,16 @@
+<% if request.waiting? %>
+  <%= link_to t("request.accept"), admin_request_path(request, request: {status: "accept"}),
+  method: :patch, remote: true, class: "btn btn-primary" %>
+  <%= link_to t("request.reject"), admin_request_path(request, request: {status: "reject"}),
+    method: :patch, remote: true, class: "btn btn-danger" %>
+<% elsif request.accept? %>
+  <%= link_to t("request.reject"), admin_request_path(request, request: {status: "reject"}),
+    method: :patch, remote: true, class: "btn btn-danger" %>
+  <%= link_to t("request.cancel"), admin_request_path(request, request: {status: "waiting"}),
+    method: :patch, remote: true, class: "btn btn-cancel" %>
+<% else %>
+  <%= link_to t("request.accept"), admin_request_path(request, request: {status: "accept"}),
+    method: :patch, remote: true, class: "btn btn-primary" %>
+  <%= link_to t("request.cancel"), admin_request_path(request, request: {status: "waiting"}),
+    method: :patch, remote: true, class: "btn btn-cancel" %>
+<% end %>

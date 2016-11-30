@@ -28,7 +28,22 @@
   padding: 0 !important;
   border: none !important;
 }
+
 .alert-danger {
   background-color: transparent !important;
   color: red !important;
+}
+
+tr {
+  td {
+    vertical-align: middle !important;
+  }
+
+  th {
+    vertical-align: middle !important;
+  }
+}
+
+.btn-cancel {
+  border: 1px solid;
 }
