@@ -3,6 +3,8 @@ class BooksController < ApplicationController
   before_action :load_data, only: :show
 
   def index
+    @books = (params[:type].nil? || params[:type] == "all") ? @books :
+      @books.send("#{params[:type]}", current_user.id)
     @q = @books.ransack params[:q]
     @books = @q.result.page(params[:page]).per Settings.per_page
   end

@@ -22,3 +22,9 @@ book:
     - list_reading
     - list_read
     - list_favorite
+  author: author
+  list_filter:
+    - all
+    - reading
+    - read
+    - favorite

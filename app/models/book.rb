@@ -4,6 +4,21 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :marks, dependent: :destroy
 
+  scope :most_books, ->{order(rate: :desc).limit(6)}
+  scope :list_books_with_author, ->author{where(author: author).order(rate: :desc)}
+
+  scope :reading, ->(user_id) do
+    includes(:marks).where(marks: {user_id: user_id, mark_read: 1})
+  end
+
+  scope :read, ->(user_id) do
+    includes(:marks).where(marks: {user_id: user_id, mark_read: 2})
+  end
+
+  scope :favorite, ->(user_id) do
+    includes(:marks).where(marks: {user_id: user_id, favorite: true})
+  end
+
   mount_uploader :photo, PhotoUploader
 
   STATUS = ["reading", "read", "favorite"]
