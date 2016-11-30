@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :reviews
   resources :categories
   resources :follows, only: [:create, :destroy]
+  resources :marks
 end

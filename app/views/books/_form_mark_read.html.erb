@@ -1,0 +1,7 @@
+<% if mark.read? %>
+  <%= link_to "<i class='fa fa-file-text-o nht-bookmark-icon'></i>".html_safe,
+    mark_path(mark: {mark_read: "reading"}), method: :patch, remote: true %>
+<% else %>
+  <%= link_to "<i class='fa fa-file-text nht-bookmark-icon'></i>".html_safe,
+    mark_path(mark: {mark_read: "read"}), method: :patch, remote: true %>
+<% end %>

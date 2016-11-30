@@ -9,9 +9,12 @@
     <div class="nht-book-content">
       <div class="col-sm-12 col-xs-10 col-md-4 col-lg-4 nht-book-content-left">
         <div class="nht-book-mark">
-          <i class="fa fa-star nht-bookmark-icon"></i>
-          <i class="fa fa-file-text nht-bookmark-icon"></i>
-          <i class="fa fa-bookmark-o nht-bookmark-icon"></i>
+          <span id="form_favorite">
+            <%= render "form_favorite", mark: @mark %>
+          </span>
+          <span id="form_mark_read">
+            <%= render "form_mark_read", mark: @mark %>
+          </span>
           <div class="clearfix"></div>
         </div>
         <%= image_tag @book.photo.url, class: "nht-book-photo" %>

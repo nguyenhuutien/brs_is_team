@@ -36,4 +36,14 @@ class User < ApplicationRecord
   def following? other_user
     following.include? other_user
   end
+
+  Book::STATUS.each do |status|
+    define_method status do
+      self.marks.send("#{status}").size
+    end
+  end
+
+  def favorite
+    self.marks.where(favorite: true).size
+  end
 end
