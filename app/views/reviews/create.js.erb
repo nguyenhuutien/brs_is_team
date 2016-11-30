@@ -1,0 +1,8 @@
+$('#nht-review-id').html('<%= j render @reviews %>')
+$('.ckeditor').val('')
+for ( instance in CKEDITOR.instances ){
+  CKEDITOR.instances[instance].updateElement();
+  CKEDITOR.instances[instance].setData('');
+}
+var top_review = $('#review-<%= @review.id %>').position().top;
+$('html, body').stop().animate({scrollTop: top_review - 80}, 500);

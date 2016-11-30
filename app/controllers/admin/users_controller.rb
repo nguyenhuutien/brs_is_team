@@ -1,8 +1,8 @@
 class Admin::UsersController < Admin::AdminController
-  authorize_resource
+  load_and_authorize_resource
 
   def index
-    @users = User.all_users
+    @users = @users.all_users
     @q = @users.ransack params[:q]
     @users = @q.result.page(params[:page]).per Settings.per_page
   end

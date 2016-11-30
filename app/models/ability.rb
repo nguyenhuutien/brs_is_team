@@ -20,6 +20,7 @@ class Ability
         can :read, Category
         can :manage, Request, user_id: user.id
         can :destroy, Like, user_id: user.id
+        can :manage, Review, user_id: user.id
       end
     end
   end
