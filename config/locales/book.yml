@@ -1,12 +1,13 @@
 en:
   book:
+    title: Title
     author: Author
     description: Description
     read: read
     reading: reading
     favorite: favorite
     bookmark: mark
-    most_book: The most book popular
+    most_book: The most books popular
     detail: Detail
     category: Category
     publish_date: Publish date
@@ -15,5 +16,4 @@ en:
     pages: Pages
     other_book: Other book
     sum_rate: Sum
-    sum_rate: Sum
-    
+    all_book: All books

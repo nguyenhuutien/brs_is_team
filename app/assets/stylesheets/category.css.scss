@@ -1,0 +1,36 @@
+ .nht-categories {
+  overflow:hidden;
+  overflow-y:scroll;
+  height: 80vh;
+ }
+
+.nht-category {
+  text-align: center;
+
+  .form-control {
+    width: 100% !important;
+    z-index: 0 !important;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  margin-top: 60px;
+
+  .input-group {
+    width: 50% !important;
+
+    .nht-icon {
+      width: 5px;
+      font-size: 20px;
+    }
+  }
+
+  .nht-btn-search {
+    text-align: center;
+  }
+
+  hr {
+    margin: 10px !important;
+  }
+}
