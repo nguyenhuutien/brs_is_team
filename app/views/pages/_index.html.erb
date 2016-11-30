@@ -7,11 +7,13 @@
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-          <h4 class="w3-center"><%= current_user.name %></h4>
-          <p class="w3-center">
-            <%= image_tag current_user.image.url,
-              class: "w3-circle nht-profile-avatar", alt: "Avatar" %>
-          </p>
+          <%= link_to current_user do %>
+            <h4 class="w3-center"><%= current_user.name %></h4>
+            <p class="w3-center">
+              <%= image_tag current_user.image.url,
+                class: "w3-circle nht-profile-avatar", alt: "Avatar" %>
+            </p>
+          <% end %>
           <div class="nht-follow-detail">
             <span class="nht-followed">
               <%= current_user.following.size %> <%= t "user.followed" %>
@@ -23,77 +25,26 @@
           </div>
           <hr>
           <p>
-            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme">
+            </i>
+            <%= l current_user.created_at, format: :default %>
           </p>
           <p>
-            <i class="fa fa-book fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-file-text-o fa-fw w3-margin-right w3-text-theme"></i>
             <%= t "book.reading" %>
           </p>
           <p>
-            <i class="fa fa-bookmark fa-fw w3-margin-right w3-text-theme"></i>
+            <i class="fa fa-file-text fa-fw w3-margin-right w3-text-theme"></i>
             <%= t "book.read" %>
+          </p>
+          <p>
+            <i class="fa fa-bookmark fa-fw w3-margin-right w3-text-theme"></i>
+            <%= t "book.bookmark" %>
           </p>
           <p>
             <i class="fa fa-star fa-fw w3-margin-right w3-text-theme"></i>
             <%= t "book.favorite" %>
           </p>
-        </div>
-      </div>
-      <br>
-
-      <!-- Accordion -->
-      <div class="w3-card-2 w3-round">
-        <div class="w3-accordion w3-white">
-          <button onclick="myFunction('Demo1')"
-            class="w3-btn-block w3-theme-l1 w3-left-align">
-            <i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>
-            <%= t "home.group" %>
-          </button>
-          <div id="Demo1" class="w3-accordion-content w3-container">
-            <p><%= t "home.text" %></p>
-          </div>
-          <button onclick="myFunction('Demo2')"
-            class="w3-btn-block w3-theme-l1 w3-left-align">
-            <i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>
-            <%= t "home.events" %>
-          </button>
-          <div id="Demo2" class="w3-accordion-content w3-container">
-            <p><%= t "home.text" %></p>
-          </div>
-          <button onclick="myFunction('Demo3')"
-            class="w3-btn-block w3-theme-l1 w3-left-align">
-            <i class="fa fa-users fa-fw w3-margin-right"></i>
-            <%= t "home.photos" %>
-          </button>
-          <div id="Demo3" class="w3-accordion-content w3-container">
-            <div class="w3-row-padding">
-              <br>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-              <div class="w3-half">
-                <img src="http://www.w3schools.com/css/img_fjords.jpg"
-                  class="w3-margin-bottom width">
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <br>
@@ -155,16 +106,11 @@
         <div class="w3-container">
           <p><%= t "book.most_book" %>:</p>
           <% @books.each do |book| %>
-            <%= image_tag book.photo.url, class: "width", alt: book.title %>
-            <p><strong><%= t "book.author" %></strong></p>
-            <p><%= t "book.description" %></p>
-            <p>
-              <%= link_to book do %>
-                <button class="w3-btn w3-btn-block w3-theme-l4">
-                  <%= t("book.detail") %>
-                </button>
-              <% end %>
-            </p>
+            <%= link_to book do %>
+              <%= image_tag book.photo.url, class: "width", alt: book.title %>
+            <% end %>
+            <p><%= book.author %></p>
+            <hr>
           <% end %>
         </div>
       </div>

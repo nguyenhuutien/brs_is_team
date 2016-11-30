@@ -15,4 +15,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   mount_uploader :image, ImageUploader
+
+  def user_reviews
+    Review.where("user_id = ? OR user_id IN(SELECT followed_id FROM follows
+      WHERE follower_id = ?)", self.id, self.id)
+  end
 end

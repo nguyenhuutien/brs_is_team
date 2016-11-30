@@ -33,18 +33,18 @@
 }
 
 #flash {
-  position: fixed;
-  margin-left: 78%;
-  margin-top: 5%;
-  top: 5px;
-  left: 5px;
-  width: auto;
+  position: absolute;
+  top: 40px;
+  right: 7%;
+  z-index: 100;
+  width: 30%;
   word-wrap: break-word;
-  text-align: left;
-}
+  float: right !important;
+  text-align: right;
 
-.nht-flash {
-  display: inline-block;
+  .nht-flash {
+    display: inline-block;
+  }
 }
 
 .td-about-image img{

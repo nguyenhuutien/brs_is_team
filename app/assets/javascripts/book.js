@@ -30,10 +30,10 @@ document.addEventListener('turbolinks:load', function() {
     $('.two .bar').width(0);
     $('.one .bar').width(0);
   } else {
-    $('.five .bar').css("width", (rate_five / sum)*100 + '%');
-    $('.four .bar').css("width", (rate_four / sum)*100 + '%');
-    $('.three .bar').css("width", (rate_three / sum)*100 + '%');
-    $('.two .bar').css("width", (rate_two / sum)*100 + '%');
-    $('.one .bar').css("width", (rate_one / sum)*100 + '%');
+    $('.five .bar').css("width", (rate_five / sum)*80 + '%');
+    $('.four .bar').css("width", (rate_four / sum)*80 + '%');
+    $('.three .bar').css("width", (rate_three / sum)*80 + '%');
+    $('.two .bar').css("width", (rate_two / sum)*80 + '%');
+    $('.one .bar').css("width", (rate_one / sum)*80 + '%');
   }
 });
