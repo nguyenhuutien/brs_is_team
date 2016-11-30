@@ -33,3 +33,7 @@ en:
   time:
     <<: *datetime
   search: Search
+  tooltip:
+    books: All books
+    notifications: Notifications
+    requests: All requests

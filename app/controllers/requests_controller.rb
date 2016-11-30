@@ -10,10 +10,8 @@ class RequestsController < ApplicationController
 
   def create
     if @request.save
-      flash.now[:success] = t "request.success"
+      flash[:success] = t "request.success"
       redirect_to user_requests_path(current_user)
-    else
-      render :new
     end
   end
 

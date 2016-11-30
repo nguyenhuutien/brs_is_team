@@ -1,3 +1,14 @@
+.alert {
+  width: calc(50% - 30px);
+  float: left;
+  margin-left: 30px;
+  padding: 0 !important;
+  border: none !important;
+}
+.alert-danger {
+  background-color: transparent !important;
+}
+
 #signupbox {
   padding-top: 10%;
 }

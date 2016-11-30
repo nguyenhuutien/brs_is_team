@@ -19,6 +19,11 @@ class Book < ApplicationRecord
     includes(:marks).where(marks: {user_id: user_id, favorite: true})
   end
 
+  validates :title, presence: true, length: {maximum: 50}
+  validates :author, presence: true, length: {maximum: 40}
+  validates :category, presence: true
+  validates :publish_date, presence: true
+
   mount_uploader :photo, PhotoUploader
 
   STATUS = ["reading", "read", "favorite"]
