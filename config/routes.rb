@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :books
   resources :reviews
   resources :categories
+  resources :follows, only: [:create, :destroy]
 end

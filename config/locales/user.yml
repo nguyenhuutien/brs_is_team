@@ -6,3 +6,7 @@ en:
     email: Email
     current_password: Current password
     name: Name
+    follow: Follow
+    unfollow: UnFollow
+    update_success: Update profile successful
+    update_fail: Update profile fail

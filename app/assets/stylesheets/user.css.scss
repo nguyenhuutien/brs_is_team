@@ -12,6 +12,14 @@
 
     .td-user-profile-detail {
       padding-bottom: 30px;
+      position: relative;
+
+      #follow_form {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+      }
     }
 
     #avatar {
@@ -44,7 +52,7 @@
     }
 
     .input-group {
-      margin-right: 0px;
+      z-index: 0 !important;
     }
   }
 

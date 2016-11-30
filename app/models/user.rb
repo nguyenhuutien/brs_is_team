@@ -20,4 +20,20 @@ class User < ApplicationRecord
     Review.where("user_id = ? OR user_id IN(SELECT followed_id FROM follows
       WHERE follower_id = ?)", self.id, self.id)
   end
+
+  def favorite_books
+    Book.take(6)
+  end
+
+  def follow other_user
+    active_relationships.create followed_id: other_user.id
+  end
+
+  def unfollow other_user
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following? other_user
+    following.include? other_user
+  end
 end
