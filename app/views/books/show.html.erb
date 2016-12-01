@@ -19,7 +19,10 @@
         </div>
         <%= image_tag @book.photo.url, class: "nht-book-photo" %>
         <div class="nht-book-detail">
-          <p class="author"><%= @book.author %></p>
+          <%= link_to user_list_books_path(current_user,
+            author: @book.author), remote: true do %>
+            <p class="author"><%= @book.author %></p>
+          <% end %>
           <p class="publish_date"><em><%= l @book.publish_date, format: :default %></em></p>
 
           <div class="title">
@@ -31,11 +34,13 @@
           <div class="nht-book-rate">
             <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 nht-book-rate-left">
               <div class="nht-book-rate-content">
-                <h1><%= @book.rate %></h1>
+                <h1>
+                  <%= @book.sum_rate == 0 ? 0 : (@book.sum_point.to_f / @book.sum_rate).round(1) %>
+                </h1>
               </div>
               <div class="nht-book-rate-sum">
                 <i class="fa fa-user">
-                  <%= @supports.sum_rate %>
+                  <%= @book.sum_rate %>
                 </i>
               </div>
             </div>
@@ -111,16 +116,22 @@
     <div class="w3-content w3-display-container nht-book-other_book-content">
       <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
-          <% @books.each_with_index do |book, i| %>
+          <% @supports.other_books.each_with_index do |book, i| %>
             <% if i == 0 %>
               <div class="item active">
-                <div class="col-xs-4 col-md-4"><%= image_tag book.photo.url,
-                  id: "nht-book-photo" %></div>
+                <div class="col-xs-4 col-md-4">
+                  <%= link_to book do %>
+                    <%= image_tag book.photo.url, id: "nht-book-photo" %>
+                  <% end %>
+                </div>
               </div>
             <% else %>
               <div class="item">
-                <div class="col-xs-4 col-md-4"><%= image_tag book.photo.url,
-                  id: "nht-book-photo" %></div>
+                <div class="col-xs-4 col-md-4 ">
+                  <%= link_to book do %>
+                    <%= image_tag book.photo.url, id: "nht-book-photo" %>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           <% end %>
@@ -137,10 +148,16 @@
       <hr>
     </h4>
 
-    <div class="well">
+    <div class="">
       <div id="review_form">
+        <%= render "reviews/form" %>
+        <div class="clearfix"></div>
       </div>
-      <br>
+
+      <div class="nht-review-index" id="nht-review-id">
+        <%= render @book.reviews %>
+      </div>
     </div>
   </div>
 </div>
+<div id="list_book-modal" class="modal fade"></div>

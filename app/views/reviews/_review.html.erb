@@ -1,0 +1,30 @@
+<div class="nht-review" id="review-<%= review.id %>">
+  <hr>
+  <div class="col-xs-8 col-sm-4 col-md-3 col-lg-3 nht-user-avatar">
+    <%= image_tag review.user.image.url, id: "avatar", class: "img-responsive" %>
+    <p><strong><%= review.user.name %></strong></p>
+  </div>
+  <div class="col-sm-8 col-md-9 col-lg-9 nht-review-content">
+    <span>
+      <% review.rate.times do %>
+        <i class="fa fa-star fa-fw w3-text-theme"></i>
+      <% end %>
+      <strong><%= review.title %></strong>
+    </span>
+
+    <span class="small">
+      <%= time_ago_in_words review.created_at %>
+      <%= t "review.ago" %>
+    </span>
+    <hr>
+    <%= simple_format(review.content) %>
+    <div class="nht-btn-like-cmt">
+      <%= render "shared/like_form", review: review %>
+      <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
+        <i class="fa fa-comment"></i><%= t "review.comment" %>
+      </button>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

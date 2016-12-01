@@ -26,6 +26,7 @@ gem "kaminari-bootstrap", "~> 3.0.1"
 gem "ransack"
 gem "bootstrap-datepicker-rails"
 gem "public_activity"
+gem "ckeditor"
 
 source "https://rails-assets.org/" do
   gem "rails-assets-adminlte"
