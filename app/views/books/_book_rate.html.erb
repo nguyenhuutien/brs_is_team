@@ -1,0 +1,54 @@
+<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 nht-book-rate-left">
+  <div class="nht-book-rate-content">
+    <h1>
+      <%= @book.sum_rate == 0 ? 0 : (@book.sum_point.to_f / @book.sum_rate).round(1) %>
+    </h1>
+  </div>
+  <div class="nht-book-rate-sum">
+    <i class="fa fa-user">
+      <%= @book.sum_rate %>
+    </i>
+  </div>
+</div>
+<div class="col-sm-8 col-xs-8 col-md-8 col-lg-8 nht-book-rate-right">
+  <div class="bar-content five">
+    <i class="fa fa-star star"> <%= Settings.rate.load_five_star %></i>
+    <span class="bar" data-id="<%= @supports.load_five_star %>">
+      <%= @supports.load_five_star %>
+    </span>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="bar-content four">
+    <i class="fa fa-star star"> <%= Settings.rate.load_four_star %></i>
+    <span class="bar" data-id="<%= @supports.load_four_star %>">
+      <%= @supports.load_four_star %>
+    </span>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="bar-content three">
+    <i class="fa fa-star star"> <%= Settings.rate.load_three_star %></i>
+    <span class="bar" data-id="<%= @supports.load_three_star %>">
+      <%= @supports.load_three_star %>
+    </span>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="bar-content two">
+    <i class="fa fa-star star"> <%= Settings.rate.load_two_star %></i>
+    <span class="bar" data-id="<%= @supports.load_two_star %>">
+      <%= @supports.load_two_star %>
+    </span>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="bar-content one">
+    <i class="fa fa-star star"> <%= Settings.rate.load_one_star %></i>
+    <span class="bar" data-id="<%= @supports.load_one_star %>">
+      <%= @supports.load_one_star %>
+    </span>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="clearfix"></div>

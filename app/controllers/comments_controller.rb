@@ -12,6 +12,20 @@ class CommentsController < ApplicationController
     @comments = @review.comments
   end
 
+  def edit
+    @comments = @review.comments
+  end
+
+  def update
+    @comment.update_attributes comment_params
+    @comments = @review.comments
+  end
+
+  def destroy
+    @comment.destroy
+    @comments = @review.comments
+  end
+
   private
   def comment_params
     params.require(:comment).permit :content

@@ -29,10 +29,4 @@ class Review < ApplicationRecord
   def create_review_activity
     book.create_activity key: "reviews" , owner: user
   end
-
-  def update_rate_book
-    book.sum_rate += 1
-    book.sum_point += rate
-    book.save
-  end
 end

@@ -1,2 +1,3 @@
 $('#nht-comment-<%= @review.id %>').html('<%= j render @comments %>')
+$('#nht-sum-like-cmt-<%= @review.id %>').html('<%= j render "shared/sum_like_cmt", review: @review %>')
 $('#nht-comment-form-<%= @review.id %>').hide();
