@@ -20,8 +20,12 @@
         <%= image_tag @book.photo.url, class: "nht-book-photo" %>
         <div class="nht-book-detail">
           <%= link_to user_list_books_path(current_user,
-            author: @book.author), remote: true do %>
-            <p class="author"><%= @book.author %></p>
+            author_id: @book.author.id), remote: true do %>
+            <p class="author">
+              <% @book.authors.each do |author| %>
+                <%= author.name %>
+              <% end %>
+            </p>
           <% end %>
           <p class="publish_date"><em><%= l @book.publish_date, format: :default %></em></p>
 

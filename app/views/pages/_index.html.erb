@@ -49,14 +49,18 @@
                 <%= link_to book do %>
                   <%= image_tag book.photo.url, class: "width", alt: book.title %>
                 <% end %>
-                <%= link_to user_list_books_path(current_user,
-                  author: book.author), remote: true do %>
-                  <p class="nht-book-author"><%= book.author %></p>
+                <% book.authors.each do |author| %>
+                  <%= link_to user_list_books_path(current_user,
+                    author_id: author.id), remote: true do %>
+                    <p class="nht-book-author">
+                      <%= author.name %>
+                    </p>
+                  <% end %>
                 <% end %>
                 <hr>
               </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
     <!-- End Right Column -->

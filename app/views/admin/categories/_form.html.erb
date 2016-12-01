@@ -1,8 +1,10 @@
+<% provide :title, title %>
+<% provide :btn_title, btn_title %>
 <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10 col-sm-offset-1
   col-xs-offset-1 col-md-offset-1 col-lg-offset-1 nht-admin-category">
   <div class="modal-dialog">
     <div class="modal-content">
-      <h1><%= t "category.edit" %></h1>
+      <h1><%= title %></h1>
       <%= form_for [:admin, @category], remote: true do |f| %>
         <div id="nht-category-errors"></div>
         <div class="input-group">
@@ -13,7 +15,7 @@
             class: "form-control" %>
         </div>
 
-        <%= f.submit t("category.save"), class: "btn btn-primary nht-admin-btn-category" %>
+        <%= f.submit btn_title, class: "btn btn-primary nht-admin-btn-category" %>
         <%= link_to t("category.cancel"), "#", data: {dismiss: "modal"},
           class: "btn btn-danger nht-admin-btn-category" %>
         <div class="clearfix"></div>

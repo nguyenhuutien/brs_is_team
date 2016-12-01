@@ -1,6 +1,17 @@
 class Admin::CategoriesController < Admin::AdminController
   load_and_authorize_resource
 
+  def new
+  end
+
+  def create
+    if @category.save
+      @categories = @categories.includes :books
+      @q = @categories.ransack params[:q]
+      @categories = @q.result.page(params[:page]).per Settings.per_page
+    end
+  end
+
   def index
     @categories = @categories.includes :books
     @q = @categories.ransack params[:q]
@@ -14,8 +25,9 @@ class Admin::CategoriesController < Admin::AdminController
 
   def update
     if @category.update_attributes category_params
-      flash[:success] = t "category.success"
-      redirect_to admin_categories_path
+      @categories = @categories.includes :books
+      @q = @categories.ransack params[:q]
+      @categories = @q.result.page(params[:page]).per Settings.per_page
     end
   end
 

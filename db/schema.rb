@@ -23,21 +23,19 @@ ActiveRecord::Schema.define(version: 20161201092425) do
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_book_authors_on_author_id"
-    t.index ["book_id"], name: "index_book_authors_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.date     "publish_date"
-    t.string   "author"
     t.integer  "pages"
     t.string   "photo"
-    t.float    "rate"
+    t.integer  "sum_rate",     default: 0
+    t.integer  "sum_point",    default: 0
     t.integer  "category_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 

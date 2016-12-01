@@ -2,24 +2,21 @@
   <h1><%= t "category.all_book", category: @category.name %></h1>
   <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
     <div class="nht-admin-search-form">
-      <%= search_form_for @q, url: admin_category_path(@category) do |f| %>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <i class="fa fa-info nht-icon" aria-hidden="true"></i>
-          </span>
-          <%= f.text_field :title_cont,placeholder: t("book.title"),
-            class: "form-control" %>
+      <%= search_form_for [:admin, @q], remote: true do |f| %>
+        <div class="col-sm-8 col-xs-8 col-md-6 col-md-ofset-2 col-lg-6 col-lg-offset-2">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-info nht-icon" aria-hidden="true"></i>
+            </span>
+            <%= f.text_field :title_cont, placeholder: t("book.title"),
+              class: "form-control" %>
+          </div>
         </div>
-
-        <div class="input-group">
-          <span class="input-group-addon">
-            <i class="fa fa-user nht-icon" aria-hidden="true"></i>
-          </span>
-          <%= f.text_field :author_cont,placeholder: t("book.author"),
-            class: "form-control" %>
-        </div>
-        <div class="nht-btn-search">
+        <div class="nht-btn-search col-md-4 col-lg-4">
           <%= f.submit t(:search), class: "btn btn-primary" %>
+          <%= link_to t("book.new"), new_admin_book_path(category_id: @category),
+            remote: true, class: "btn btn-primary" %>
+          <div class="clearfix"></div>
         </div>
       <% end %>
     </div>
@@ -34,6 +31,5 @@
   </div>
   <div class="clearfix"></div>
 </div>
-
-<div id="admin-book-modal" class="modal fade"></div>
 <div id="admin-category-form" class="modal fade"></div>
+<div id="admin-book-form" class="modal fade"></div>

@@ -19,7 +19,7 @@
 //= require ckeditor/init
 
 $(document).ready(function(){
-  $('.datepicker').datetimepicker();
+  $('#datepicker').datetimepicker();
 });
 
 $(document).on('turbolinks:load', function() {
