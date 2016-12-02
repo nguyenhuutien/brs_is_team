@@ -29,4 +29,9 @@ module ApplicationHelper
     link_to ("<span class='glyphicon glyphicon-plus small'>AddAuthor</span>").html_safe,
       "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")}
   end
+
+  def notification_content notification
+    ("<strong>#{notification.author.name}</strong>" + I18n.t("notification.has_create") +
+      "<strong>#{notification.book.title}</strong>").html_safe
+  end
 end

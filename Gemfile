@@ -27,6 +27,7 @@ gem "ransack"
 gem "bootstrap-datepicker-rails"
 gem "public_activity"
 gem "ckeditor"
+gem "redis"
 
 source "https://rails-assets.org/" do
   gem "rails-assets-adminlte"

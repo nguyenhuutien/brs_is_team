@@ -3,7 +3,16 @@
     <div class="modal-content">
       <%= link_to "<i class='fa fa-times' aria-hidden='true'></i>".html_safe, "#",
         data: {dismiss: "modal"}, class: "close" %>
-      <h1><%= @title.humanize %></h1>
+      <h1>
+        <%= @title.humanize %>
+      </h1>
+      <h2>
+        <% if @author %>
+          <span id="favorite_author-form" title="Favorite">
+            <%= render "favorite_authors/favorite_author" %>
+          </span>
+        <% end %>
+      </h2>
       <% books.each do |book| %>
         <div class="col-sm-6 col-sm-4 col-md-3 col-log-3 nht-list-book-content">
           <%= link_to book do %>

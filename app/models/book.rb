@@ -7,6 +7,12 @@ class Book < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     foreign_key: "trackable_id", dependent: :destroy
+  has_many :notifications, dependent: :destroy
+
+  accepts_nested_attributes_for :authors,
+    reject_if: lambda {|a| a[:name].blank?}, allow_destroy: true
+
+  default_scope -> {order created_at: :desc}
 
   accepts_nested_attributes_for :authors,
     reject_if: lambda {|a| a[:name].blank?}, allow_destroy: true

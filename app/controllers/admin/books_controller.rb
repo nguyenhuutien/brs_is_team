@@ -19,12 +19,17 @@ class Admin::BooksController < Admin::AdminController
 
   def create
     correct_params = correct_book_params
-    if correct_params && Book.create!(correct_params)
-      @categories = Category.all
-      @books = Book.all
-      @categories = Category.includes :books
-      @q = @books.ransack params[:q]
-      @books = @q.result.page(params[:page]).per Settings.per_page
+    if correct_params
+      if (@book = Book.create(correct_params))
+        @authors.each do |author|
+          @book.book_authors.create author_id: author
+        end
+        @categories = Category.all
+        @books = Book.all
+        @categories = Category.includes :books
+        @q = @books.ransack params[:q]
+        @books = @q.result.page(params[:page]).per Settings.per_page
+      end
     end
   end
 
@@ -58,6 +63,7 @@ class Admin::BooksController < Admin::AdminController
   end
 
   def correct_book_params
+    @authors = Array.new
     check_book_params = book_params
     params_book_author = book_params[:authors_attributes]
     params_author = params[:author]
@@ -85,6 +91,14 @@ class Admin::BooksController < Admin::AdminController
             return false
           end
         end
+      end
+    end
+
+    params_book_author = check_book_params[:authors_attributes]
+    params_book_author.each do |author|
+      if (aut = Author.find_by name: params_book_author[author][:name])
+        @authors.push aut.id
+        check_book_params[:authors_attributes] = check_book_params[:authors_attributes].without author
       end
     end
     check_book_params

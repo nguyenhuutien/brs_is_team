@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :destroy, :edit, :update]
   end
   resources :marks, only: :update
+  resources :favorite_authors, only: [:create, :destroy]
   resources :feed_backs, only: [:new, :create]
 
   namespace :admin do
