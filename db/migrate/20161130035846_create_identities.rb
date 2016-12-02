@@ -4,6 +4,11 @@ class CreateIdentities < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.string :provider
       t.string :uid
+      t.string :access_token
+      t.string :refresh_token
+      t.string :email
+      t.string :image
+      t.string :name      
 
       t.timestamps
     end

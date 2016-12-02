@@ -4,9 +4,7 @@
       <%= image_tag book.photo.url, class: "nht-book-photo", alt: book.title %>
     <% end %>
     <p class="nht-book-author">
-      <% book.authors.each do |author| %>
-        <%= author.name %>
-      <% end %>
+      <%= link_to truncate(book.title, length: Settings.book_title_length), book %>
     </p>
     <hr>
   </div>

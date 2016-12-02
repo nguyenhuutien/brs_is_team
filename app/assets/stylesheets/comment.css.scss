@@ -5,10 +5,10 @@
 
     #avatar {
       max-height: 40px;
-      min-height: 35px;
+      min-height: 37px;
       min-width: 35px;
       border-radius: 100%;
-      vertical-align: middle;
+      float: right;
     }
 
     .form-control {
@@ -21,7 +21,7 @@
     float: left;
 
     .form-control {
-      height: auto;
+      min-height: 40px;
       width: 100%;
     }
   }

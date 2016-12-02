@@ -117,8 +117,13 @@ ActiveRecord::Schema.define(version: 20161202085148) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "access_token"
+    t.string   "refresh_token"
+    t.string   "email"
+    t.string   "image"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
   end
 

@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user = @identity.user || current_user
       if @identity.provider == "twitter"
         nickname = env["omniauth.auth"].info.nickname.gsub(/[^0-9A-Za-z]/, "")
-        @identity.email = "#{nickname}@fels.xxx"
+        @identity.email = "#{nickname}@brs.xxx"
       end
       @user ||= User.find_by email: @identity.email
       @user ||= User.create name: @identity.name, email: @identity.email,

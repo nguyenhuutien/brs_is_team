@@ -5,6 +5,7 @@ activity_length: 15
 content_length: 30
 admin_content_length: 70
 book_title_length: 30
+limit_element: 6
 rate:
   load_five_star: 5
   load_four_star: 4

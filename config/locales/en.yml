@@ -39,3 +39,5 @@ en:
     requests: All requests
     authors: All authors
   danger: Failure
+  book_review:
+    title: Book Review System
