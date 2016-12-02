@@ -41,12 +41,6 @@
       </div>
     </li>
 
-    <li class="w3-hide-small" title="<%= t "tooltip.notifications" %>">
-      <%= link_to "#", class: "w3-padding-large w3-hover-white" do %>
-        <i class="fa fa-globe"></i>
-      <% end %>
-    </li>
-
     <li class="w3-hide-small w3-right w3-dropdown-hover">
       <a href="#" class="w3-padding-large w3-hover-white" title="My Account">
         <%= image_tag current_user.image.url, class: "w3-circle td-img",
@@ -56,6 +50,45 @@
         <%= link_to t("profile.title"), current_user, class: "nht-dropdown-fix" %>
         <%= link_to t("sessions.sign_out"), destroy_user_session_path, method: :delete,
           class: "nht-dropdown-fix" %>
+      </div>
+    </li>
+
+    <li class="w3-hide-small nht-notification-icon" title="<%= t "tooltip.notifications" %>">
+      <div class="w3-padding-large w3-hover-white"%>
+        <i class="fa fa-globe">
+          <div class="nht-notification-count">
+            <%= current_user.new_notification %>
+          </div>
+        </i>
+      </div>
+      <div class="nht-notifications">
+        <ul class="nht-noti-list">
+          <% @notifications.each do |notification| %>
+            <li class="nht-notification notification-<%= notification.id %>
+              <%= notification.read %>-notification">
+              <%= link_to notification.book do %>
+                <span class="col-md-2 col-lg-2">
+                <div class="nht-notification-avatar">
+                  <%= image_tag notification.book.photo.url, id: "avatar-#{notification.id}",
+                    class: "nht-avatar" %>
+                  <div class="clearfix"></div>
+                </div>
+                </span>
+                <span class="col-md-10 col-lg-10 nht-notification-content">
+                  <span>
+                    <%= notification_content notification %>
+                  </span>
+                  <div>
+                    <%= time_ago_in_words notification.created_at %>
+                  </div>
+                  <div class="clearfix"></div>
+                </span>
+                <div class="clearfix"></div>
+              <% end %>
+            </li>
+          <% end %>
+          <div class="clearfix"></div>
+        </ul>
       </div>
     </li>
    </ul>

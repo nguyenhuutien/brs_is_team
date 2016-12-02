@@ -6,7 +6,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <h1><%= title %></h1>
-      <%= form_for [:admin, @book], remote: true do |f| %>
+      <%= form_for [:admin, @book], authenticity_token: true, remote: true do |f| %>
         <div id="nht-book-errors"></div>
         <div class="input-group">
           <span class="input-group-addon">

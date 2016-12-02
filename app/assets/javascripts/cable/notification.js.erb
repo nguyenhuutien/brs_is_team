@@ -1,0 +1,83 @@
+var channel = "NotificationChannel";
+var books = [];
+var authors = [];
+var notifications = [];
+
+App.notification = App.cable.subscriptions.create({
+  channel: channel}, {
+  received: function(data) {
+    if (data.notification !== undefined) {
+      author = data.author;
+      book = data.book;
+      notification = data.notification;
+      books.push(book);
+      authors.push(author);
+      notifications.push(notification);
+
+      $('.nht-notification-count').show();
+      $('.nht-notification-count')[0].innerText = notifications.length.toString();
+
+      html = convertNotification(book, author, notification);
+      $('.nht-noti-list').prepend(html);
+
+      if (book.photo.url != 'book.jpg') {
+        $('#avatar-' + notification.id)[0].src = book.photo.url;
+      } else {
+        $('#avatar-' + notification.id)[0].src = '<%= asset_path "book.jpg" %>';
+      }
+
+      notification_id = '.notification-' + notification.id;
+      $('.notification-' + notification.id).on('click', function() {
+        window.location.assign(window.location.origin + '/books/' + book.id);
+      });
+
+    } else if (data.notification_id !== undefined) {
+      notification_id = data.notification_id;
+      if (notification_id == 'all') {
+        $('.nht-notification-count').hide();
+      }
+    }
+  },
+
+  speak: function(data) {
+    this.perform('speak', data);
+  }
+});
+
+function convertNotification(book, author, notification) {
+  message = '<strong>' + author.name + ' </strong> has created a book: <strong>' + book.title + '</strong>';
+  html = '<li class="nht-notification notification-' + notification.id + ' false-notification">';
+  html += '<span class="col-md-2 col-lg-2 nht-notification-avatar">';
+  html += '<img src="" id="avatar-' + notification.id + '" class="nht-avatar">';
+  html += '<div class="clearfix"></div></span>';
+  html += '<span class="col-md-10 col-lg-10 nht-notification-content">';
+  html += message + '<div class="small">' + jQuery.timeago(notification.created_at) + '</div></span>';
+  html += '<div class="clearfix"></div></li><div class="clearfix"></div>';
+  return html;
+}
+
+document.addEventListener("turbolinks:load", function() {
+  if ($('.nht-notification-count').is(':visible')) {
+    if($('.nht-notification-count')[0].innerText == '0') {
+      $('.nht-notification-count').hide();
+    } else {
+      $('.nht-notifications').show();
+    }
+  }
+
+  if($('.nht-notifications').length) {
+    $('.nht-notifications').hide();
+  }
+
+  $('.nht-notification-icon').on('click', function() {
+    if(!$('.nht-notifications').is(':visible')) {
+      App.notification.speak({action_type: "new_notification", notification_id: "all"});
+    }
+    $('.nht-notifications').toggle();
+  });
+
+  $('.nht-notification').on('click', function() {
+    var id = parseInt(this.className.split(' ')[1].split('-')[1]);
+    App.notification.speak({action_type: "new_notification", notification_id: id});
+  });
+});

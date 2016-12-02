@@ -18,14 +18,12 @@
 //= require bootstrap-datepicker
 //= require ckeditor/init
 
-$(document).ready(function(){
-  $('#datepicker').datetimepicker();
-});
-
 $(document).on('turbolinks:load', function() {
   setTimeout(function(){
     $('#flash').slideUp(1000);
   }, 1500);
 
-  CKEDITOR.replace('ckeditor');
+  if($('.ckeditor').length) {
+    CKEDITOR.replace('ckeditor');
+  }
 });

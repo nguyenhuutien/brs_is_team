@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include CanCan::ControllerAdditions
 
   before_action :authenticate_user!
-  before_action :load_categories
+  before_action :load_categories, :load_notification
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:danger] = exception.message
@@ -25,5 +25,9 @@ class ApplicationController < ActionController::Base
     controller_name_segments.pop
     controller_namespace = controller_name_segments.join('/').camelize
     Ability.new current_user, controller_namespace
+  end
+
+  def load_notification
+    @notifications = current_user.notifications if current_user
   end
 end

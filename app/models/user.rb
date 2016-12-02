@@ -16,8 +16,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     foreign_key: "owner_id", dependent: :destroy
-
-  scope :all_users, -> {where admin: false}
+  has_many :notifications, class_name: Notification.name,
+    foreign_key: "recipient_id", dependent: :destroy
+  has_many :favorite_authors, dependent: :destroy
 
   scope :all_users, -> {where admin: false}
 
@@ -44,6 +45,10 @@ class User < ApplicationRecord
 
   def like? review
     self.likes.find_by(review_id: review.id) ? true : false
+  end
+
+  def favorite_author? author
+    favorite_authors.find_by author_id: author.id
   end
 
   Book::STATUS.each do |status|

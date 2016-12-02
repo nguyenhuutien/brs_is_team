@@ -62,6 +62,11 @@
   }
 
   .nht-admin-book-content {
+    .nht-book-photo {
+      max-height: 250px;
+      width: auto;
+    }
+
     .nht-book-content-left {
       text-align: center;
       .author {
@@ -119,6 +124,10 @@
 
   .input-group {
     margin-bottom: 10px !important;
+
+    .form-control {
+      height: auto;
+    }
 
     .nht-icon {
       font-size: 1.4em !important;

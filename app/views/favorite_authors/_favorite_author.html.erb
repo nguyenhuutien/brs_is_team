@@ -1,0 +1,14 @@
+<% if current_user.favorite_author? @author %>
+  <span class="small">
+    <%= t "author.unfavorite" %>
+  </span>
+  <%= link_to "<i class='fa fa-star nht-bookmark-icon'></i>".html_safe,
+    favorite_author_path(@favorite_author), method: :delete, remote: true %>
+<% else %>
+  <span class="small">
+    <%= t "author.favorite" %>
+  </span>
+  <%= link_to "<i class='fa fa-star-o nht-bookmark-icon'></i>".html_safe,
+    favorite_authors_path(favorite_author: {author_id: @author.id}), method: :post,
+    remote: true %>
+<% end %>
