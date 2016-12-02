@@ -1,1 +1,2 @@
 $('#nht-like-<%= @review.id %>').html('<%= j render "shared/like", review: @review %>');
+$('#nht-sum-like-cmt-<%= @review.id %>').html('<%= j render "shared/sum_like_cmt", review: @review %>')

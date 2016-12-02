@@ -11,6 +11,5 @@ class LikesController < ApplicationController
 
   def destroy
     @like.destroy
-    @review.likes.build
   end
 end

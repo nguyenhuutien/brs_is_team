@@ -34,6 +34,11 @@ User.all.each do |user|
   end
 end
 
+5.times do |i|
+  review = Review.find_by_id (i + 1)
+  review.comments.create! user_id: 1, content: "Tất cả những trải nghiệm trong chuyến phiêu du theo đuổi vận mệnh của mình đã giúp Santiago thấu hiểu được ý nghĩa sâu xa nhất của hạnh phúc, hòa hợp với vũ trụ và con người.Tiểu thuyết Nhà giả kim của Paulo Coelho như một câu chuyện cổ tích giản dị, nhân ái, giàu chất thơ, thấm đẫm những minh triết huyền bí của phương Đông."
+end
+
 1.times do
   Request.create! user_id: 1, book_title: Faker::Book.title, book_author: Faker::Book.author,
     book_publish_date: Date.new(2016, 11, 9)

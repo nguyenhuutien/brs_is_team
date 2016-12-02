@@ -1,0 +1,28 @@
+.nht-comment-form {
+
+  .nht-comment-avatar {
+    float: left;
+
+    #avatar {
+      width: auto;
+      height: auto;
+      border-radius: 100%;
+    }
+
+    #avatar-form {
+      width: auto;
+      max-height: auto;
+      border-radius: 100%;
+    }
+  }
+
+  .nht-comment-content {
+    margin: auto;
+    float: left;
+
+    .form-control {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

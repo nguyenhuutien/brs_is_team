@@ -4,6 +4,8 @@ class Ability
   def initialize user, controller_namespace
     user ||= User.new
     alias_action :new, :create, :edit, :update, :destroy, to: :crud
+    alias_action :new, :create, :show, :index, to: :crub1
+    alias_action :edit, :update, :destroy, to: :crub2
     case controller_namespace
     when "Admin"
       if user.admin?
@@ -20,7 +22,10 @@ class Ability
         can :read, Category
         can :manage, Request, user_id: user.id
         can :destroy, Like, user_id: user.id
-        can :manage, Review, user_id: user.id
+        can :crub1, Review
+        can :crub2, Review, user_id: user.id
+        can :crub1, Comment
+        can :crub2, Comment, user_id: user.id
       end
     end
   end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => "/ckeditor"
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: {
     registrations: "registrations",
     omniauth_callbacks: "omniauth_callbacks"
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: :show do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:new, :create, :destroy, :edit, :update]
   end
   resources :marks, only: :update
   resources :feed_backs, only: [:new, :create]
