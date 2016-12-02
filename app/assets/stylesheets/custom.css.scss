@@ -38,11 +38,12 @@ alert-danger {
 
 #flash {
   position: absolute;
-  top: 50px;
+  top: 60px;
   right: 4%;
   width: auto;
   word-wrap: break-word;
   text-align: right;
+  z-index: 1;
 }
 
 .td-about-image img{

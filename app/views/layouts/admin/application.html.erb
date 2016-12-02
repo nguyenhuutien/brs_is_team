@@ -15,9 +15,10 @@
       <div class="content-wrapper dn-content">
         <div id="flash">
           <% flash.each do |message_type, message| %>
-            <div class="alert panel-danger alert-<%= message_type %>">
-              <%= message %>
-            </div>
+            <% if  message_type == "notice" %>
+              <% message_type = "success" %>
+            <% end %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
           <% end %>
         </div>
         <section class="content">
