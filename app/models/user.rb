@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :notifications, class_name: Notification.name,
     foreign_key: "recipient_id", dependent: :destroy
   has_many :favorite_authors, dependent: :destroy
+  has_many :list_favorite_authors, through: :favorite_authors, source: :author
 
   scope :all_users, -> {where admin: false}
 

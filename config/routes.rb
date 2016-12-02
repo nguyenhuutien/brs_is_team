@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :marks, only: :update
   resources :favorite_authors, only: [:create, :destroy]
   resources :feed_backs, only: [:new, :create]
+  resources :authors, only: [:index, :show]
 
   namespace :admin do
     root to: "books#index", as: :root

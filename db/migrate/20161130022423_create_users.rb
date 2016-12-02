@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.boolean :admin, default: false
       t.string :image
+      t.integer :new_notification, default: 0
 
       t.timestamps
     end

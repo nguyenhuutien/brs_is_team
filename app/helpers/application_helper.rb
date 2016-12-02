@@ -7,8 +7,9 @@ module ApplicationHelper
       if activity.trackable_type == "Book"
         link_to truncate(object.title, length: Settings.activity_length), object, title: object.title
       elsif activity.trackable_type == "Review"
-        link_to truncate(object.content, length: Settings.activity_length), object,
-          title: truncate(object.content, length: Settings.content_length)
+        link_to truncate(ActionView::Base.full_sanitizer.sanitize(object.content),
+          length: Settings.activity_length), object, title: truncate(ActionView::Base.full_sanitizer.sanitize(object.content),
+          length: Settings.content_length)
       else
         link_to truncate(object.name, length: Settings.activity_length), object,
           title: object.name
