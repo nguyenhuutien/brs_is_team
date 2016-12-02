@@ -1,29 +1,50 @@
 <div class="nht-review" id="review-<%= review.id %>">
   <hr>
-  <div class="col-xs-8 col-sm-4 col-md-3 col-lg-3 nht-user-avatar">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-sm-4
+    col-md-3 col-md-offset-0 col-lg-3 col-lg-offset-0 nht-user-avatar">
     <%= image_tag review.user.image.url, id: "avatar", class: "img-responsive" %>
     <p><strong><%= review.user.name %></strong></p>
   </div>
-  <div class="col-sm-8 col-md-9 col-lg-9 nht-review-content">
-    <span>
-      <% review.rate.times do %>
-        <i class="fa fa-star fa-fw w3-text-theme"></i>
-      <% end %>
-      <strong><%= review.title %></strong>
-    </span>
+  <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-0
+    col-lg-9 col-lg-offset-0 nht-review-content">
+    <div class="nht-review-top">
+      <span>
+        <% review.rate.times do %>
+          <i class="fa fa-star fa-fw w3-text-theme"></i>
+        <% end %>
+        <strong><%= review.title %></strong>
+      </span>
 
-    <span class="small">
-      <%= time_ago_in_words review.created_at %>
-      <%= t "review.ago" %>
-    </span>
-    <hr>
+      <span class="small">
+        <%= time_ago_in_words review.created_at %>
+        <%= t "review.ago" %>
+      </span>
+    </div>
+
     <%= simple_format(review.content) %>
-    <div class="nht-btn-like-cmt">
-      <%= render "shared/like_form", review: review %>
-      <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom">
-        <i class="fa fa-comment"></i><%= t "review.comment" %>
-      </button>
+
+    <div>
+      <div class="nht-sum-like-cmt" id="nhr-sum-like-cmt-<%= review.id %>">
+        <%= render "shared/sum_like_cmt", review: review %>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="nht-btn-like-cmt">
+        <%= render "shared/like_form", review: review %>
+        <%= link_to new_review_comment_path(review), class: "w3-btn w3-theme-d2 w3-margin-bottom",
+          remote: true do %>
+          <i class="fa fa-comment"> <%= t "review.comment" %></i>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
       <div class="clearfix"></div>
+    </div>
+
+    <div id="nht-comment-form-<%= review.id %>">
+    </div>
+
+    <div class="nht-comment-index" id="nht-comment-<%= review.id %>">
+      <%= render review.comments %>
     </div>
   </div>
   <div class="clearfix"></div>
