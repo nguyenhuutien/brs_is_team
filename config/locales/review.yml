@@ -11,3 +11,5 @@ en:
     edit: Edit
     delete: Delete
     you_sure: Are you sure?
+    review_of: Review of the '%{book}'
+    more: More detail

@@ -10,8 +10,8 @@
     }
 
     #avatar-form {
-      width: auto;
-      max-height: auto;
+      min-height: 35px;
+      min-width: 35px;
       border-radius: 100%;
     }
   }

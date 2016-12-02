@@ -24,6 +24,15 @@
 
 .nht-review-index {
 
+  .nht-sum-like-cmt-page {
+    float: right;
+    padding: 10px;
+
+    .more {
+      margin-right: 10px;
+    }
+  }
+
   .nht-review {
     margin-bottom: 30px;
 
@@ -64,6 +73,50 @@
         margin-top: 20px;
         float: right;
       }
+    }
+  }
+}
+
+.nht-review-show {
+  margin-top: 60px;
+  margin-bottom: 20px;
+
+  .nht-user-avatar {
+    float: left;
+    padding: 30px;
+    padding-top: 0px;
+    text-align: center;
+
+    #avatar {
+      width: auto;
+      height: auto;
+      border-radius: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .nht-review-content {
+    float: left;
+    position: relative;
+
+    .nht-review-top {
+      margin-bottom: 10px;
+    }
+
+    .small {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+
+    .nht-sum-like-cmt {
+      margin-top: 30px;
+      float: left;
+    }
+
+    .nht-btn-like-cmt {
+      margin-top: 20px;
+      float: right;
     }
   }
 }
