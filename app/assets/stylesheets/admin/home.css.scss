@@ -1,3 +1,13 @@
+#flash {
+  position: absolute;
+  top: 60px;
+  right: 4%;
+  width: auto;
+  word-wrap: break-word;
+  text-align: right;
+  z-index: 1;
+}
+
 .logo {
   a {
     color: white;
@@ -14,24 +24,27 @@
   }
 }
 
-.nht-fix-alert {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  padding: 15px;
-  border-radius: 5px;
-}
+.modal-content {
 
-.alert {
-  width: calc(50% - 30px);
-  float: left;
-  margin-left: 30px;
-  padding: 0 !important;
-  border: none !important;
-}
+  .nht-fix-alert {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    border-radius: 5px;
+  }
 
-.alert-danger {
-  background-color: transparent !important;
-  color: red !important;
+  .alert {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 30px;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .alert-danger {
+    background-color: transparent !important;
+    color: red !important;
+  }
 }
 
 tr {

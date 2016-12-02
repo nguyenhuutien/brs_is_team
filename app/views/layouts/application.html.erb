@@ -20,6 +20,9 @@
       <div class="row">
         <div id="flash">
           <% flash.each do |message_type, message| %>
+            <% if  message_type == "notice" %>
+              <% message_type = "success" %>
+            <% end %>
             <div class="alert alert-<%= message_type %>"><%= message %></div>
           <% end %>
         </div>
