@@ -1,0 +1,32 @@
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th><%= sort_link @q, :name, t("author.name") %></th>
+      <th><%= sort_link @q, :sum_book, t("author.sum_book") %></th>
+      <th><%= sort_link @q, :created_at, t("author.created_at") %></th>
+      <th><%= sort_link @q, :updated_at, t("author.updated_at") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td>
+          <%= link_to author.name, author, remote: true %>
+        </td>
+
+        <td>
+          <%= author.books.size %>
+        </td>
+
+        <td>
+          <%= l author.created_at, format: :default %>
+        </td>
+
+        <td>
+          <%= l author.updated_at, format: :default %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @authors, remote: true %>

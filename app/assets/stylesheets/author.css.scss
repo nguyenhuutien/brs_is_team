@@ -1,0 +1,82 @@
+.nht-author-index {
+  margin-top: 55px;
+  min-height: 100vh;
+  height: auto;
+
+  th {
+    text-align: center;
+  }
+
+  .nht-btn-author {
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+
+  .nht-search-form {
+    text-align: center;
+    vertical-align: middle;
+
+    .input-group {
+      margin: auto;
+      max-width: 500px;
+      margin-bottom: 10px;
+
+      .nht-icon {
+        width: 30px !important;
+        font-size: 1.3em !important;
+      }
+    }
+
+    .nht-btn-search {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.nht-list_author {
+  text-align: center;
+
+  .nht-list-author-content:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .modal-dialog {
+    width: 80% !important;
+
+    .modal-content {
+      position: relative;
+      padding: 10px !important;
+
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 2em;
+      }
+    }
+  }
+
+  .nht-list-author-content {
+    padding-top: 10px;
+
+    .nht-author-photo {
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    .nht-book-author {
+      color: #008340;
+    }
+
+    .hr {
+      margin-top: 0px !important;
+      margin-bottom: 5px !important;
+    }
+  }
+}

@@ -19,11 +19,9 @@
             <%= image_tag book.photo.url, class: "nht-book-photo", alt: book.title %>
           <% end %>
           <p>
-            <% book.authors.each do |author| %>
-              <div class="nht-book-author"><%= link_to author.name,
-                user_list_books_path(current_user, author_id: author.id),
-                remote: true %></div>
-            <% end %>
+            <div class="nht-book-author">
+              <%= link_to truncate(book.title, length: Settings.book_title_length), book %>
+            </div>
           </p>
           <hr>
         </div>

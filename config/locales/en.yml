@@ -37,4 +37,5 @@ en:
     books: All books
     notifications: Notifications
     requests: All requests
+    authors: All authors
   danger: Failure

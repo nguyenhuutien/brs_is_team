@@ -20,7 +20,8 @@ class Admin::BooksController < Admin::AdminController
   def create
     correct_params = correct_book_params
     if correct_params
-      if (@book = Book.create(correct_params))
+      @book = Book.new correct_params
+      if @book.save
         @authors.each do |author|
           @book.book_authors.create author_id: author
         end

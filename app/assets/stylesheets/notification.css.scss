@@ -19,6 +19,7 @@
   position: relative;
 
   .nht-notification-count {
+    display: none;
     position: absolute;
     top: -8px;
     right: -8px;
@@ -60,10 +61,10 @@
     border: 1px solid #D9D9D9;
     border-right: none;
     border-left: none;
+    overflow-y: hidden !important;
 
     a {
       padding: 0px !important;
-      overflow-y: hidden;
     }
 
     .nht-notification-avatar {

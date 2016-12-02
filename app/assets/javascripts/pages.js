@@ -18,29 +18,31 @@ document.addEventListener("turbolinks:load", function() {
   $(window).on('scroll', function(){
     if ($('.page-scroll').length) {
       var scroll_top = $(window).scrollTop();
-      var book_library_top = $('#book_library').position().top;
-      var about_top = $('#about').position().top;
-      var feed_back_top = $('#feed_back').position().top;
-      if (scroll_top < book_library_top -dis_top) {
-        $('.page-scroll').parent().removeClass('active');
-        $('#_home').addClass('active');
-      }
-      else if (about_top - dis_top > scroll_top && scroll_top > book_library_top - dis_top) {
-        $('.page-scroll').parent().removeClass('active');
-        $('#_book_library').addClass('active');
-      }
-      else if (feed_back_top - dis_top > scroll_top && scroll_top > about_top - dis_top) {
-        $('.page-scroll').parent().removeClass('active');
-        $('#_about').addClass('active');
-      }
-      else if (scroll_top > feed_back_top - dis_top) {
-        $('.page-scroll').parent().removeClass('active');
-        $('#_feed_back').addClass('active');
-      }
-      if (scroll_top > head_top) {
-        $('#mainNav').addClass('color-header');
-      } else {
-        $('#mainNav').removeClass('color-header');
+      if ($('#book_library').length) {
+        var book_library_top = $('#book_library').position().top;
+        var about_top = $('#about').position().top;
+        var feed_back_top = $('#feed_back').position().top;
+        if (scroll_top < book_library_top -dis_top) {
+          $('.page-scroll').parent().removeClass('active');
+          $('#_home').addClass('active');
+        }
+        else if (about_top - dis_top > scroll_top && scroll_top > book_library_top - dis_top) {
+          $('.page-scroll').parent().removeClass('active');
+          $('#_book_library').addClass('active');
+        }
+        else if (feed_back_top - dis_top > scroll_top && scroll_top > about_top - dis_top) {
+          $('.page-scroll').parent().removeClass('active');
+          $('#_about').addClass('active');
+        }
+        else if (scroll_top > feed_back_top - dis_top) {
+          $('.page-scroll').parent().removeClass('active');
+          $('#_feed_back').addClass('active');
+        }
+        if (scroll_top > head_top) {
+          $('#mainNav').addClass('color-header');
+        } else {
+          $('#mainNav').removeClass('color-header');
+        }
       }
     }
   });
