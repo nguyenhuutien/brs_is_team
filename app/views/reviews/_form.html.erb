@@ -1,13 +1,15 @@
+<% provide :title, title %>
 <%= form_for [@book, @review], remote: true do |f| %>
   <div class="nht-review-rate">
     <% Settings.max_rate.times do |i| %>
       <i class="fa fa-star nht-star-<%= i %>"><% i %></i>
     <% end %>
   </div>
-  <%= f.hidden_field :rate, value: 1 %>
+  <%= f.hidden_field :rate, value: @review.rate %>
   <%= f.text_field :title, placeholder: t("review.enter_title"),
     class: "form-control ckeditor" %>
   <%= f.text_area :content, placeholder: t("review.enter_content"),
     class: "form-control ckeditor", id: "ckeditor" %>
-  <%= f.submit t("review.create"), class: "btn btn-primary nht-btn-review" %>
+  <%= f.submit yield(:title), class: "btn btn-primary nht-btn-review" %>
 <% end %>
+<div class="clearfix"></div>

@@ -4,7 +4,21 @@ class ReviewsController < ApplicationController
 
   def create
     @review.book = @book
+    @review.user = current_user
     @review.save
+    @reviews = @book.reviews
+  end
+
+  def edit
+  end
+
+  def update
+    @review.update_attributes review_params
+    @reviews = @book.reviews
+  end
+
+  def destroy
+    @review.destroy
     @reviews = @book.reviews
   end
 

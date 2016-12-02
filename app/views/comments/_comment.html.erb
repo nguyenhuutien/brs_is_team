@@ -1,4 +1,4 @@
-<div class="nht-comment-form">
+<div class="nht-comment-form" id="comment-<%= comment.id %>">
   <hr>
   <div class="col-xs-4 col-xs-offset-1 col-sm-4 col-sm-offset-1
     col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0 nht-comment-avatar">
@@ -9,7 +9,7 @@
     col-md-10 col-md-offset-0 col-lg-10 col-lg-offset-0 nht-comment-content">
     <span><strong><%= comment.user.name %></strong></span>
     <span class="small">
-      <%= time_ago_in_words comment.created_at %>
+      <%= time_ago_in_words comment.updated_at %>
       <%= t "review.ago" %>
     </span>
     <div class="nht-comment-form-content">

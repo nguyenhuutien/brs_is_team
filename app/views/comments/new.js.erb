@@ -1,1 +1,2 @@
+$('#nht-comment-form-<%= @review.id %>').show()
 $('#nht-comment-form-<%= @review.id %>').html('<%= j render "form", review: @review, comment: @comment %>')
