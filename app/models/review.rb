@@ -25,6 +25,10 @@ class Review < ApplicationRecord
     end
   end
 
+  def review_comments
+    self.comments.where parent_id: nil
+  end
+
   private
   def create_review_activity
     book.create_activity key: "reviews" , owner: user
