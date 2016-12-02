@@ -14,11 +14,6 @@ class Book < ApplicationRecord
 
   default_scope -> {order created_at: :desc}
 
-  accepts_nested_attributes_for :authors,
-    reject_if: lambda {|a| a[:name].blank?}, allow_destroy: true
-
-  default_scope -> {order created_at: :desc}
-
   scope :most_books, ->{order(sum_point: :desc).limit(6)}
 
   scope :reading, ->(user_id) do
@@ -35,7 +30,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true, length: {maximum: 50}
   validates :category, presence: true
-  # validates :publish_date, presence: true
+  validates :publish_date, presence: true
 
   mount_uploader :photo, PhotoUploader
 

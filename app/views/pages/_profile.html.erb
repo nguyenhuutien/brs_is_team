@@ -44,3 +44,10 @@
     <%= t "book.favorite" %>
   <% end %>
 </p>
+<p>
+  <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
+  <%= link_to authors_path(type: "favorite") do %>
+    <%= current_user.list_favorite_authors.size %>
+    <%= t "author.list_favorite" %>
+  <% end %>
+</p>

@@ -14,11 +14,11 @@
         <br>
         <div class="w3-container">
           <p class="td-p-flex">
-            <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal">
+            <i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme">
             </i><%= @user.email %>
           </p>
           <p class="td-p-flex">
-            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal">
+            <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme">
             </i>
             <%= l @user.created_at, format: :default %>
           </p>
@@ -44,6 +44,13 @@
               book_status: Settings.book.list_book[2]), remote: true do %>
               <%= @user.size_favorite %>
               <%= t "book.favorite" %>
+            <% end %>
+          </p>
+          <p>
+            <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
+            <%= link_to authors_path(type: "favorite") do %>
+              <%= current_user.list_favorite_authors.size %>
+              <%= t "author.list_favorite" %>
             <% end %>
           </p>
         </div>

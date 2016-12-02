@@ -15,7 +15,6 @@ class Review < ApplicationRecord
   default_scope -> {order created_at: :desc}
 
   after_create :create_review_activity
-  after_create :update_rate_book
 
   include PublicActivity::Model
 
