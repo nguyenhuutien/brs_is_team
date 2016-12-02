@@ -1,2 +1,12 @@
-$('#nht-comment-form-<%= @review.id %>').show()
-$('#nht-comment-form-<%= @review.id %>').html('<%= j render "form", review: @review, comment: @comment %>')
+<% if @comment.parent_id %>
+  <% if @comment.reply_id %>
+    $('#nht-comment-reply-<%= @parent.id %>').show()
+    $('#nht-comment-reply-<%= @parent.id %>').html('<%= j render "form", review: @review, comment: @comment %>')
+  <% else %>
+    $('#nht-comment-reply-<%= @review.id %>').show()
+    $('#nht-comment-reply-<%= @review.id %>').html('<%= j render "form", review: @review, comment: @comment %>')
+  <% end %>
+<% else %>
+  $('#nht-comment-form-<%= @review.id %>').show()
+  $('#nht-comment-form-<%= @review.id %>').html('<%= j render "form", review: @review, comment: @comment %>')
+<% end %>

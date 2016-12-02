@@ -1,12 +1,15 @@
+<hr>
 <div class="nht-comment-form">
-  <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1
-    col-md-1 col-md-offset-0 col-lg-1 col-lg-offset-0 nht-comment-avatar">
-    <%= image_tag current_user.image.url, id: "avatar-form", class: "img-responsive" %>
+  <div class="col-xs-4 col-xs-offset-0 col-sm-4 col-sm-offset-0
+    col-md-3 col-md-offset-0 col-lg-2 col-lg-offset-0 nht-comment-avatar">
+    <%= image_tag current_user.image.url, id: "avatar", class: "img-responsive" %>
     <div class="clearfix"></div>
   </div>
-  <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0
-    col-md-11 col-md-offset-0 col-lg-11 col-lg-offset-0 nht-comment-content">
+  <div class="col-xs-8 col-xs-offset-0 col-sm-8 col-sm-offset-0
+    col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0 nht-comment-content">
     <%= form_for [review, comment], remote: true do |f| %>
+      <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :reply_id %>
       <%= f.text_field :content, placeholder: t("comment.enter_content"),
         class: "form-control nht-comment-form-content", id: "form-comment" %>
     <% end %>

@@ -4,15 +4,15 @@
     float: left;
 
     #avatar {
-      width: auto;
-      height: auto;
-      border-radius: 100%;
-    }
-
-    #avatar-form {
+      max-height: 40px;
       min-height: 35px;
       min-width: 35px;
       border-radius: 100%;
+      vertical-align: middle;
+    }
+
+    .form-control {
+      min-height: 40px !important;
     }
   }
 
