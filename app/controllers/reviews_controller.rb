@@ -4,6 +4,9 @@ class ReviewsController < ApplicationController
   before_action :load_support, only: [:create, :update, :destroy]
   before_action :update_book, only: [:update, :destroy]
 
+  def show
+  end
+
   def create
     @review.book = @book
     @review.user = current_user
