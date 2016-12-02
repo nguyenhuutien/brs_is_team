@@ -31,7 +31,7 @@
               </span>
               <%= f.text_field :book_publish_date, class: "form-control",
                 placeholder: t("request.book_publish_date"),
-                data: {provide: "datepicker"} %>
+                data: {provide: "datepicker"}, "data-date-format" => "dd/mm/yyyy" %>
             </div>
 
             <%= f.submit t("request.new"), class: "btn btn-primary nht-btn-request-new" %>

@@ -1,0 +1,24 @@
+<fieldset>
+  <a class="nht-other-author" href=""><p class="<%= f.index %>"><%=  t "book.another_author" %></p></a>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <%= f.hidden_field :_destroy, value: 0 %>
+      <%= link_to "#", class: "remove_fields" do %>
+        <span class='glyphicon glyphicon-minus small'></span>
+      <% end %>
+      <i class="fa fa-user nht-icon" aria-hidden="true"></i>
+    </span>
+    <%= f.select :name, @authors.collect {|author|
+      [author.name]}, {},
+      class: "form-control nht-multi nht-admin-book-author-multi-#{f.index}" %>
+    <%= text_field :author, "#{f.index}", placeholder: t("book.author"),
+      class: "form-control nht-single nht-admin-book-author-single-#{f.index}",
+      list: "authors" %>
+    <%= hidden_field "#{f.index}", :_destroy, value: 1 %>
+    <datalist id="authors">
+      <% @authors.each do |author| %>
+        <option value="<%= author.name %>">
+      <% end %>
+    </datalist>
+  </div>
+</fieldset>

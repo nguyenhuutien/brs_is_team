@@ -4,7 +4,7 @@
       <th><%= sort_link @q, :photo, t("book.photo") %></th>
       <th><%= sort_link @q, :title, t("book.title") %></th>
       <th><%= sort_link @q, :category, t("book.category") %></th>
-      <th><%= sort_link @q, :author, t("book.author") %></th>
+      <th><%= sort_link @q, :author_name, t("book.author") %></th>
       <th><%= sort_link @q, :rate, t("book.rate") %></th>
       <th><%= sort_link @q, :pages, t("book.pages") %></th>
       <th><%= sort_link @q, :publish_date, t("book.publish_date") %></th>
@@ -28,11 +28,13 @@
         </td>
 
         <td>
-          <%= book.author %>
+          <% book.authors.each do |author| %>
+            <%= author.name %>
+          <% end %>
         </td>
 
         <td>
-          <%= book.rate %>
+          <%= book.sum_rate == 0 ? 0 : (book.sum_point.to_f / book.sum_rate).round(1) %>
         </td>
 
         <td>
