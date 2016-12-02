@@ -1,8 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :activity
+  belongs_to :review
 
-  validates :review, presence: true
   validates :user, presence: true
   validates :review, presence: :true
 end

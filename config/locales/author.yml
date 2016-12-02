@@ -6,3 +6,4 @@ en:
     name: Name of author
     favorite: favorite
     filter: "Filter: "
+    list_favorite: Favorite authors
