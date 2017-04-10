@@ -3,7 +3,10 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @parent = Comment.find_by id: comment_params[:reply_id] if params[:comment]
+    if params[:comment]
+      @parent = Comment.find_by id: comment_params[:reply_id]
+      @parent ||= Comment.find_by id: comment_params[:parent_id]
+    end
   end
 
   def create
