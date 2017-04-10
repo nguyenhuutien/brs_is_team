@@ -13,7 +13,7 @@
     password_confirmation: password)
 end
 
-User.create! name: "Nguyen Huu Tien", email: "tiennh1995@gmail.com", password: "123456",
+User.create! name: "Nguyen Huu Tien", email: "nguyen.huu.tien@framgia.com", password: "123456",
   password_confirmation: "123456", admin: true
 
 2.times do

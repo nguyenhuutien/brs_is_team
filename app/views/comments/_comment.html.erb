@@ -20,18 +20,20 @@
 
       <% if can?(:update, comment) && can?(:destroy, comment) %>
         <%=  link_to t("comment.edit"), edit_review_comment_path(comment.review, comment),
-          remote: true %>
+          remote: true, class: "nht-link-action" %>
         <%=  link_to t("comment.delete"), review_comment_path(comment.review, comment),
-          method: :delete, data: {confirm: t("comment.you_sure")}, remote: true %>
+          method: :delete, data: {confirm: t("comment.you_sure")}, remote: true,
+          class: "nht-link-action" %>
       <% end %>
 
       <span>
         <% if comment.parent_id %>
           <%= link_to t("comment.reply"), new_review_comment_path(comment.review,
-            comment: {parent_id: comment.parent_id, reply_id: comment.id}), remote: true %>
+            comment: {parent_id: comment.parent_id, reply_id: comment.id}),
+            remote: true, class: "nht-link-action" %>
         <% else %>
           <%= link_to t("comment.reply"), new_review_comment_path(comment.review,
-            comment: {parent_id: comment.id}), remote: true %>
+            comment: {parent_id: comment.id}), remote: true, class: "nht-link-action" %>
         <% end %>
       </span>
       <div id="nht-comment-reply-<%= comment.review.id %>">

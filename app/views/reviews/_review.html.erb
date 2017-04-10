@@ -24,9 +24,9 @@
     <%= simple_format(review.content) %>
     <% if can?(:update, review) && can?(:destroy, review) %>
       <%=  link_to t("review.edit"), edit_book_review_path(review.book, review),
-        remote: true %>
+        remote: true, class: "nht-link-action" %>
       <%=  link_to t("review.delete"), book_review_path(review.book, review),
-        method: :delete, data: {confirm: t("review.you_sure")}, remote: true %>
+        method: :delete, data: {confirm: t("review.you_sure")}, remote: true, class: "nht-link-action" %>
     <% end %>
     <div>
       <div class="nht-sum-like-cmt" id="nht-sum-like-cmt-<%= review.id %>">

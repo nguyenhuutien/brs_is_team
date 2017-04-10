@@ -17,7 +17,7 @@
         <div class="w3-container">
           <p><%= t "profile.interests" %></p>
           <p>
-            <% @books.each_with_index do |book, i| %>
+            <% @favorite_books.each_with_index do |book, i| %>
               <span class="w3-tag w3-small w3-theme-d1">
                 <%= link_to book do %>
                   <%= truncate(book.title, length: 20) %>
