@@ -2,10 +2,15 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.nht-header{
+.nht-header {
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.w3-top {
+  z-index: 10 !important;
+}
+
 .nht-header .nht-navbar {
   background-color: transparent;
   border: none;
@@ -137,7 +142,7 @@ footer {
   bottom: 0;
   width: 100%;
   left: 0;
-  z-index: 10;
+  z-index: 5;
   text-align: center;
 }
 footer span.copyright {

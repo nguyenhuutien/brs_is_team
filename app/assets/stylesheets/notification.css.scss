@@ -49,6 +49,7 @@
   li {
     list-style-type: none;
     cursor: pointer !important;
+    z-index: 10 !important;
   }
 
   li:hover {

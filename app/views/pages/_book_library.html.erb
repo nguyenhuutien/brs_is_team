@@ -9,7 +9,7 @@
     <div class="row">
       <% @most_books.each_with_index do |book, i| %>
         <div class="col-md-4 col-sm-6 book_library-item">
-            <%= link_to image_tag("background.jpg", class: "img-responsive"), root_path,
+            <%= link_to image_tag("bg-#{i + 1}.jpg", class: "img-responsive"), root_path,
               class: "book_library-link" %>
             <div class="book_library-caption">
               <h4><%= book.title %></h4>
